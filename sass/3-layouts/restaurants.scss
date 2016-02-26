@@ -1,0 +1,34 @@
+$mobile: new-breakpoint(min-width 0px 4);
+$tablet: new-breakpoint(min-width 760px 8);
+
+
+
+
+
+
+.container {
+  @include clearfix;
+  @include outer-container;
+  @include media( $mobile ) {
+    @include span-columns(4);
+  background: white;
+  }
+
+  @include media( $tablet ) {
+    @include span-columns(8);
+  background: black;
+  color: white;
+  }
+}
+
+.left {
+  @include span-columns(4);
+  background: #eeeee0;
+  margin: 0 auto;
+  @include background(linear-gradient(red, green) left repeat);
+}
+
+.right {
+  @include span-columns(8);
+  @include background(linear-gradient(blue, yellow) left repeat);
+}
