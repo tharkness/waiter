@@ -46,10 +46,10 @@
           <a class="button is-fullwidth is-large is-primary is-outlined modal-button" data-target="#modal">modal</a>
         </div>
 <!-- end 5 columns -->
-      </div> <!-- end of search bar -->
+      </div> <!-- end of left column -->
 
       <!-- right side main column, for desktop & tablet -->
-      <div class="column">
+      <div class="column is-hidden-mobile">
         <figure class="card-image is-4x3">
           <img src="http://placehold.it/800x600" alt="">
         </figure>
@@ -59,34 +59,22 @@
   </div>
 </section>
 
-<!-- begin of modal -->
-  <div class="modal">
-    <div class="modal-background">
-    </div>
-    <div class="modal-container">
-      <div class="modal-content">
-        <div class="box">
-<!-- beginning of the modified (de-containered) modal card -->
-          <figure class="card-image is-4x3">
-            <img src="http://placehold.it/400x300" alt="">
-          </figure>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-5">Restaurant Name</p>
-                <p class="subtitle is-6">3214 Restaurant Street</p>
-              </div>
-            </div>
-            <div class="content">
-              This restaurant is the shit. Uber legit and all. Review here. Another One. Eat some asparagus and whatever else you"d like.
-            <br>
-            <strong>Open Now</strong>
-          </div>
-        </div>
-<!-- end of the modified (de-containered) modal card -->
-        </div>
+<!-- all the modal goes below -->
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <div class="content">
+        <p class="image is-4by3">
+          <img src="http://placehold.it/1280x960">
+        </p>
+        <p class="tag is-warning">30 minute wait</p>
+        <p class="title is-5">Restaurant Name</p>
+        <p class="subtitle is-6">3214 Restaurant Street</p>
+        <p>This restaurant is the shit. I mean, beef, pork, veggies, zomg, and brains. Review goes here lalalala, the roast brains is.... not worth it. But atmosphere is nice.</p>
       </div>
     </div>
-    <button class="modal-close"></button>
   </div>
-<!-- end of modal -->
+  <button class="modal-close"></button>
+</div>
