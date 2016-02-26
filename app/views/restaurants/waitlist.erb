@@ -1,2 +1,21 @@
-<!-- this is the bee's knees where we manage the waitlist -->
-<p>this is the waitlist page for tablet</p>
+
+<table border="1" style="width:100%">
+  <tr>
+    <td><button type="button" onClick="location.href='/restaurants/decrement_two_seat_wait'"> - 2min </button></td>
+    <td><button type="button" onClick="location.href='/restaurants/reset_two_seat_wait'"> All Clear </button></td>
+    <td><%= @hostess.restaraunt.two_seat_wait %></td>
+    <td><button type="button" onClick="location.href='/restaurants/increment_two_seat_wait'"> + 2min </button></td>
+  </tr>
+  <tr>
+    <td><button type="button" onClick="location.href='/restaurants/decrement_four_seat_wait'"> - 2min </button></td>
+    <td><button type="button" onClick="location.href='/restaurants/reset_four_seat_wait'"> All Clear </button></td>
+    <td><%= @hostess.restaraunt.four_seat_wait %></td>
+    <td><button type="button" onClick="location.href='/restaurants/increment_four_seat_wait'"> + 2min </button></td>
+  </tr>
+  <tr>
+    <td><button type="button" onClick="location.href='/restaurants/decrement_large_table_wait'"> - 2min </button></td>
+    <td><button type="button" onClick="location.href='/restaurants/reset_large_table_wait'"> All Clear </button></td>
+    <td><%= @hostess.restaraunt.large_table_wait %></td>
+    <td><button type="button" onClick="location.href='/restaurants/increment_large_table_wait'"> + 2min </button></td>
+  </tr>
+</table>
