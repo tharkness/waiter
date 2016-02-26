@@ -50,57 +50,52 @@ get '/restaurants/:id/waitlist' do
 end
 
 get '/restaurants/increment_two_seat_wait' do
-  @hostess = current_hostess(2)
-  @hostess.increase_two_seat_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :two_seat_wait => current_hostess(2).increase_two_seat_wait }.to_json
 end
 
 get '/restaurants/decrement_two_seat_wait' do
-  @hostess = current_hostess(2)
-  @hostess.decrease_two_seat_wait
-  erb :'restaurants/waitlist'
+  # current_hostess(2)
+  # .decrease_two_seat_wait
+  # erb :'restaurants/waitlist'
+  # redirect "/restaurants/#{@hostess.restaraunt.id}/waitlist"
+  content_type :json
+  { :two_seat_wait => current_hostess(2).decrease_two_seat_wait }.to_json
 end
 
 get '/restaurants/reset_two_seat_wait' do
-  @hostess = current_hostess(2)
-  @hostess.reset_two_seat_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :two_seat_wait => current_hostess(2).reset_two_seat_wait }.to_json
 end
 
 get '/restaurants/increment_four_seat_wait' do
-  @hostess = current_hostess(2)
-  @hostess.increase_four_seat_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :four_seat_wait => current_hostess(2).increase_four_seat_wait }.to_json
 end
 
 get '/restaurants/decrement_four_seat_wait' do
-  @hostess = current_hostess(2)
-  @hostess.decrease_four_seat_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :four_seat_wait => current_hostess(2).decrease_four_seat_wait }.to_json
 end
 
 get '/restaurants/reset_four_seat_wait' do
-  @hostess = current_hostess(2)
-  @hostess.reset_four_seat_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :four_seat_wait => current_hostess(2).reset_four_seat_wait }.to_json
 end
 
 get '/restaurants/increment_large_table_wait' do
-  @hostess = current_hostess(2)
-  @hostess.increase_large_table_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :large_table_wait => current_hostess(2).increase_large_table_wait }.to_json
 end
 
 get '/restaurants/decrement_large_table_wait' do
-  @hostess = current_hostess(2)
-  @hostess.decrease_large_table_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :large_table_wait => current_hostess(2).decrease_large_table_wait }.to_json
 end
 
 get '/restaurants/reset_large_table_wait' do
-  @hostess = current_hostess(2)
-  @hostess.reset_large_table_wait
-  erb :'restaurants/waitlist'
+  content_type :json
+  { :large_table_wait => current_hostess(2).reset_large_table_wait }.to_json
 end
 #----------------------USER VIEWS----------------------#
 
