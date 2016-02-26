@@ -15,16 +15,20 @@ helpers do
     session[:resteraunt_list] = hello
   end
 
-  def current_hostess(id)
-    Hostess.find(id)
+  def current_hostess
+    @current_hostess = Hostess.find(session[:hostess_id]) if session[:hostess_id]
   end
 
+  def check_flash
+    @flash = session[:flash] if session[:flash]
+    session[:flash] = nil
+  end
 
 end
 
 before do
-
-
+  current_hostess
+  check_flash
 end
 
 
@@ -32,11 +36,25 @@ end
 
 #----------------------RESTAURANT VIEWS----------------------#
 
-post '/restaurants/login'do
-# TODO: implement login
+get '/login' do
+  erb :'/login'
 end
 
-get '/restaurants/logout' do
+post '/restaurants/login'do
+# TODO: implement login
+  username = params[:username]
+  password = params[:password]
+  hostess = Hostess.find_by username: username, password: password
+  if hostess
+    session[:hostess_id] = hostess.id
+    redirect "/restaurants/#{hostess.restaraunt_id}/waitlist"
+  else
+    session[:flash] = "Invalid Login"
+    redirect '/login'
+  end
+end
+
+get '/logout' do
   session.clear
   redirect '/restaurants'
 end
@@ -53,10 +71,6 @@ get '/restaurants/increment_two_seat_wait' do
 end
 
 get '/restaurants/decrement_two_seat_wait' do
-  # current_hostess(2)
-  # .decrease_two_seat_wait
-  # erb :'restaurants/waitlist'
-  # redirect "/restaurants/#{@hostess.restaraunt.id}/waitlist"
   content_type :json
   { :two_seat_wait => current_hostess(2).decrease_two_seat_wait }.to_json
 end
