@@ -469,11 +469,11 @@ table {
 .is-text-right {
   text-align: right; }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 767px) {
   .is-hidden-mobile {
     display: none !important; } }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .is-hidden-tablet {
     display: none !important; } }
 
@@ -1119,7 +1119,7 @@ table {
   .button.is-disabled, .button[disabled] {
     opacity: 0.5;
     pointer-events: none; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .button small {
       color: #69707a;
       left: 0;
@@ -1182,7 +1182,7 @@ table {
     font-size: 14px; }
     .title.is-6 code {
       font-size: 14px; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .title + .subtitle {
       margin-top: -15px; } }
 
@@ -1508,7 +1508,7 @@ table {
       margin-left: -5px;
       transform: rotate(-45deg);
       transform-origin: left bottom; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .hamburger, .header-toggle {
       height: 50px;
       width: 50px; } }
@@ -1690,7 +1690,7 @@ table {
     width: 91.66667%; }
   .columns.is-mobile > .column.is-offset-11 {
     margin-left: 91.66667%; }
-  @media screen and (max-width: 699px) {
+  @media screen and (max-width: 767px) {
     .column.is-half-mobile {
       flex: none;
       width: 50%; }
@@ -1761,7 +1761,7 @@ table {
       width: 91.66667%; }
     .column.is-offset-11-mobile {
       margin-left: 91.66667%; } }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .column.is-half, .column.is-half-tablet {
       flex: none;
       width: 50%; }
@@ -1928,7 +1928,7 @@ table {
     flex-wrap: wrap; }
   .columns.is-vcentered {
     align-items: center; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .columns.is-grid {
       flex-wrap: wrap; }
       .columns.is-grid > .column {
@@ -1938,7 +1938,7 @@ table {
         width: 33.3333%; }
         .columns.is-grid > .column + .column {
           margin-left: 0; } }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .columns:not(.is-desktop) {
       display: flex; } }
   @media screen and (min-width: 980px) {
@@ -1948,7 +1948,7 @@ table {
 .navbar-item .title,
 .navbar-item .subtitle {
   margin-bottom: 0; }
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 767px) {
   .navbar-item:not(:last-child) {
     margin-bottom: 10px; } }
 
@@ -1957,7 +1957,7 @@ table {
 .navbar img {
   display: inline-block;
   vertical-align: top; }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .navbar {
     align-items: center;
     display: flex;
@@ -1972,15 +1972,15 @@ table {
 .navbar-right .navbar-item:not(:last-child) {
   margin-right: 10px; }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 767px) {
   .navbar-left + .navbar-right {
     margin-top: 20px; } }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .navbar-left {
     align-items: center;
     display: flex; } }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .navbar-right {
     align-items: center;
     display: flex;
@@ -2195,7 +2195,7 @@ table {
     z-index: 1; }
   .tabs.is-toggle ul {
     border-bottom: none; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .tabs.is-fullwidth li {
       flex: 1; }
       .tabs.is-fullwidth li + li {
@@ -2215,10 +2215,10 @@ table {
   padding: 4px 8px;
   text-align: center;
   vertical-align: top; }
-  @media screen and (max-width: 699px) {
+  @media screen and (max-width: 767px) {
     .media-number {
       margin-bottom: 10px; } }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .media-number {
       margin-right: 10px; } }
 
@@ -2269,7 +2269,7 @@ table {
   .media.is-large + .media {
     margin-top: 20px;
     padding-top: 20px; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .media.is-large .media-number {
       margin-right: 20px; } }
 
@@ -2368,7 +2368,7 @@ a.menu-block:hover {
   overflow: auto;
   position: relative;
   width: 100%; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .modal-content {
       margin: 0 auto;
       max-height: calc(100vh - 40px);
@@ -2415,11 +2415,11 @@ a.menu-block:hover {
     box-shadow: 0 1px 0 rgba(211, 214, 219, 0.3);
     display: flex;
     width: 100%; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .header {
       height: 50px; } }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .header-toggle {
     display: none; } }
 
@@ -2479,7 +2479,7 @@ a.menu-block:hover {
 
 .header-right {
   align-items: stretch; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .header-right {
       display: flex; } }
   @media screen and (min-width: 980px) {
@@ -2504,7 +2504,7 @@ a.menu-block:hover {
       justify-content: center;
       width: 100%; }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 767px) {
   .header-menu {
     background: white;
     box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
@@ -2556,7 +2556,7 @@ a.menu-block:hover {
     position: absolute;
     top: 50%;
     transform: translate3d(-50%, -50%, 0); }
-  @media screen and (max-width: 699px) {
+  @media screen and (max-width: 767px) {
     .hero-video {
       display: none; } }
 
@@ -2568,12 +2568,12 @@ a.menu-block:hover {
 
 .hero-buttons {
   margin-top: 20px; }
-  @media screen and (max-width: 699px) {
+  @media screen and (max-width: 767px) {
     .hero-buttons .button {
       display: block; }
       .hero-buttons .button:not(:last-child) {
         margin-bottom: 10px; } }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .hero-buttons {
       display: flex;
       justify-content: center; }
@@ -2633,7 +2633,7 @@ a.menu-block:hover {
       color: #222324; }
     .hero.is-dark.is-bold {
       background-image: linear-gradient(141deg, #080a0b 0%, #222324 71%, #2c2e34 100%); }
-    @media screen and (max-width: 699px) {
+    @media screen and (max-width: 767px) {
       .hero.is-dark .header-toggle span {
         background: white; }
       .hero.is-dark .header-toggle:hover {
@@ -2682,7 +2682,7 @@ a.menu-block:hover {
       color: #1fc8db; }
     .hero.is-primary.is-bold {
       background-image: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 71%, #2cb5e8 100%); }
-    @media screen and (max-width: 699px) {
+    @media screen and (max-width: 767px) {
       .hero.is-primary .header-toggle span {
         background: white; }
       .hero.is-primary .header-toggle:hover {
@@ -2731,7 +2731,7 @@ a.menu-block:hover {
       color: #42afe3; }
     .hero.is-info.is-bold {
       background-image: linear-gradient(141deg, #13bfdf 0%, #42afe3 71%, #53a1eb 100%); }
-    @media screen and (max-width: 699px) {
+    @media screen and (max-width: 767px) {
       .hero.is-info .header-toggle span {
         background: white; }
       .hero.is-info .header-toggle:hover {
@@ -2780,7 +2780,7 @@ a.menu-block:hover {
       color: #97cd76; }
     .hero.is-success.is-bold {
       background-image: linear-gradient(141deg, #8ecb45 0%, #97cd76 71%, #96d885 100%); }
-    @media screen and (max-width: 699px) {
+    @media screen and (max-width: 767px) {
       .hero.is-success .header-toggle span {
         background: white; }
       .hero.is-success .header-toggle:hover {
@@ -2829,7 +2829,7 @@ a.menu-block:hover {
       color: #fce473; }
     .hero.is-warning.is-bold {
       background-image: linear-gradient(141deg, #ffbd3d 0%, #fce473 71%, #fffe8a 100%); }
-    @media screen and (max-width: 699px) {
+    @media screen and (max-width: 767px) {
       .hero.is-warning .header-toggle span {
         background: rgba(0, 0, 0, 0.5); }
       .hero.is-warning .header-toggle:hover {
@@ -2878,7 +2878,7 @@ a.menu-block:hover {
       color: #ed6c63; }
     .hero.is-danger.is-bold {
       background-image: linear-gradient(141deg, #f32a3e 0%, #ed6c63 71%, #f39376 100%); }
-    @media screen and (max-width: 699px) {
+    @media screen and (max-width: 767px) {
       .hero.is-danger .header-toggle span {
         background: white; }
       .hero.is-danger .header-toggle:hover {
@@ -2889,10 +2889,10 @@ a.menu-block:hover {
         background: #ed6c63; }
         .hero.is-danger .header-menu .header-item {
           border-top-color: rgba(255, 255, 255, 0.2); } }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .hero.is-fullheight .tabs, .hero.is-large .tabs {
       font-size: 18px; } }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .hero.is-medium .hero-content {
       padding: 120px 20px; } }
   @media screen and (min-width: 980px) {
@@ -2900,7 +2900,7 @@ a.menu-block:hover {
       padding: 120px 0; } }
   .hero.is-large .tabs a {
     padding: 10px 15px; }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     .hero.is-large .hero-content {
       padding: 240px 20px; } }
   @media screen and (min-width: 980px) {
