@@ -1,27 +1,109 @@
 require 'net/http'
 require 'uri'
 
-# Homepage (Root path)
-get '/' do
-  erb :index
-end
+enable :sessions
 
-post '/go' do
-  @lat = params[:lat]
-  @lon = params[:lon]
-  uri = URI.parse("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.2820004,-123.10837699999999&radius=500&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4")
-  response = Net::HTTP.get_response(uri)
-  resteraunt = JSON.parse(response.body)
-  @restaurant_list = resteraunt["results"]
-  @restaurant_list.each do |i|
-    i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours"}
+helpers do
+
+  def resteraunt_info
+    uri = URI.parse("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.2820004,-123.10837699999999&radius=500&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4")
+    response = Net::HTTP.get_response(uri)
+    resteraunt = JSON.parse(response.body)
+    hello = resteraunt["results"]
+    
+    hello.each do |i|
+      i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours"}
+    end
+    # binding.pry
+    session[:resteraunt_list] = hello
   end
-  erb :index
+
+
 end
 
-get '/go/nearby' do
-  redirect "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&name=cruise&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4"
+
+before do
+
+
 end
+
+
+# Homepage (Root path)
+
+#----------------------RESTAURANT VIEWS----------------------#
+
+post '/restaurants/login'do
+# TODO: implement login
+end
+
+get '/restaurants/logout' do
+  session.clear
+  redirect '/restaurants'
+end
+
+# TODO: is this following block optional???
+get '/restaurants/:id/waitlist' do
+  erb :'restaurants/waitlist'
+end
+
+#----------------------USER VIEWS----------------------#
+
+# NOTE: redirects to the restaurant's waitlist if logged in
+# else goes to the customer's view of all restaurants
+get '/' do
+  if session[:restaurant_id]
+    redirect '/restaurants/waitlist'
+  else
+    redirect '/restaurants'
+  end
+end
+
+post '/restaurants' do
+  session[:lat] = params[:lat]
+  session[:lon] = params[:lon]
+  resteraunt_info
+  redirect :'/restaurants'
+end
+
+
+get '/restaurants' do
+  @resteraunts_list = session[:resteraunt_list]
+  # binding.pry
+  erb :'restaurants/index'
+end
+
+get '/restaurants/:id' do
+  erb :'restaurants/show'
+end
+
+
+#----------------------DEBUGGING VIEWS----------------------#
+
+# the views here are for debugging, not included in public nav
+
+get '/debug' do
+  erb :debug
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

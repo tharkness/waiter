@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="left">
+    <p>this is the left class for mobile css</p>
+    <div id="search">placeholder: search field</div>
+    <div class="result">placeholder: nearby restaurant</div>
+    <div class="result">placeholder: nearby restaurant</div>
+    <div class="result">placeholder: nearby restaurant</div>
+    <div class="result">placeholder: nearby restaurant</div>
+    <div class="result">placeholder: nearby restaurant</div>
+  </div>
+
+  <p id="demo">Message for location consent </p>
+  <div class="right">
+
+  <form id="myForm" action='/restaurants' method="post">
+  <input type='hidden' id="lat" name='lat' value='' />
+  <input type='hidden' id="lon" name='lon' value='' />
+  <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
+  <input type='submit' name='submit' value='Use Magic!' />
+</form>
+
+<p><%=@resteraunts_list%> data should be here</p>
+
+  <p>this is the right class for gmaps for desktop</p>
+    <div id="map">
+      <p>where map goes</p>
+    </div>
+  </div>
+</div>
+
+<!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
+
+
+
+<!-- To change width and height go to application.js -->
+
+<!-- hidden form to get long and lat -->
+
+
+ 
