@@ -4,6 +4,8 @@ require 'bundler/setup'
 require 'net/http'
 require 'uri'
 
+require 'bigdecimal'
+
 require 'active_support/all'
 
 # Load Sinatra Framework (with AR)
