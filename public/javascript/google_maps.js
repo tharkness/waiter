@@ -38,47 +38,54 @@ function showPosition(position) {
     var map = new google.maps.Map(document.getElementById("map"),myOptions);
     var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 
+    var marker = new google.maps.Marker({
+    position: latlon,
+    map: map,
+    title: 'Hello World!'
+  });
+
+var resteraunt1 = new google.maps.LatLng(gon.resteraunts[2].lat,gon.resteraunts[2].lng);
+var resteraunt2 = new google.maps.LatLng(gon.resteraunts[4].lat,gon.resteraunts[4].lng);
+var resteraunt3 = new google.maps.LatLng(gon.resteraunts[6].lat,gon.resteraunts[6].lng);
+var resteraunt4 = new google.maps.LatLng(gon.resteraunts[8].lat,gon.resteraunts[8].lng);
+var resteraunt5 = new google.maps.LatLng(gon.resteraunts[10].lat,gon.resteraunts[12].lng);
+
+//----------- Making markers --------------------
+
+var marker = new google.maps.Marker({
+    position: resteraunt1,
+    title: gon.resteraunts[3]
+});
+
+var marker2 = new google.maps.Marker({
+    position: resteraunt2,
+    title: gon.resteraunts[5]
+});
+
+var marker3 = new google.maps.Marker({
+    position: resteraunt3,
+    title: gon.resteraunts[7]
+});
+
+var marker4 = new google.maps.Marker({
+    position: resteraunt4,
+    title: gon.resteraunts[9]
+});
+
+var marker5 = new google.maps.Marker({
+    position: resteraunt5,
+    title: gon.resteraunts[11]
+});
 
 
-// var string_http = ['https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=',lat,',',lon,'&radius=500&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4'].join("");
-
-// console.log("string = " + string_http)
-// $.ajax({
-//   url: string_http ,
-//   dataType: 'json',
-//   crossDomain: true,
-//   success: function(response) {
-//     debugger;
-//   }
-// });
-
-
+//----------Add marker to the map---------------
+marker.setMap(map);
+marker2.setMap(map);
+marker3.setMap(map);
+marker4.setMap(map);
+marker5.setMap(map);
 
 }
-
-// function getJson(position) {
-//     
-
-//     document.getElementById('lat').value = lat;
-//     document.getElementById('lon').value = lon;
-
-
-//     var string_http = ['https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=',lat,',',lon,'&radius=500&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4'].join("");
-
-//     console.log("string = " + lat)
-//     $.ajax({
-//       url: string_http ,
-//       dataType: 'jsonp',
-//       crossDomain: true,
-//       success: function(response) {
-//         debugger;
-//       }
-//     });
-
-// }
-
-
-
 
 
 //In case shit hits the fan
@@ -100,6 +107,31 @@ function showError(error) {
     }
 
 }
+
+// Grabbing lat and long
+
+
+// console.log(gon.resteraunts);
+
+// var marker = new google.maps.Marker({
+//     var position = new google.maps.LatLng(gon.resteraunts[2].lat, gon.resteraunts[2].lng)
+//     position: position
+//     map: map,
+//     title: 'Hello World!'
+//   });
+
+// var string_http = ['https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=',lat,',',lon,'&radius=500&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4'].join("");
+
+// console.log("string = " + string_http)
+// $.ajax({
+//   url: string_http ,
+//   dataType: 'json',
+//   crossDomain: true,
+//   success: function(response) {
+//     debugger;
+//   }
+// });
+
    
 
 

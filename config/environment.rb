@@ -4,6 +4,9 @@ require 'bundler/setup'
 require 'net/http'
 require 'uri'
 
+require 'gon-sinatra'
+Sinatra::register Gon::Sinatra
+
 require 'bigdecimal'
 
 require 'active_support/all'
