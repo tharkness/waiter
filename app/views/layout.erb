@@ -19,16 +19,29 @@
   <title>Waiter - for the hungry</title>
 </head>
 <body>
-  <nav>
-    <div><a href='/restaurants'>Home</a></div>
-  </nav>
+
+  <div class="section">
+    <div class="container">
+      <div class="columns is-mobile">
+      <div class="column is-11">
+        <div class="heading">
+          <h1 class="title">Waiter</h1>
+          <h2 class="subtitle">it saves you time, go eat more</h2>
+        </div>
+      </div>
+      <div class="column">
+        <a class="button is-pulled-right" href="#">Login</a>
+      </div>
+      </div>
+    </div>
+  </div>
+
   <%= yield %>
+
 <footer class="footer">
   <div class="container">
     <div class="content is-centered">
-    <p>
-      <strong>Waiter</strong> by three hungry web devs.
-    </p>
+    <p><strong>Waiter</strong> by three hungry web devs.</p>
     </div>
   </div>
 </footer>
