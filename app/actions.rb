@@ -9,8 +9,7 @@ helpers do
     uri = URI.parse("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.2820004,-123.10837699999999&radius=500&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4")
     response = Net::HTTP.get_response(uri)
     resteraunt = JSON.parse(response.body)
-    hello = resteraunt["results"]
-    
+    hello = resteraunt["results"][0..6]
     hello.each do |i|
       i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours"}
     end
