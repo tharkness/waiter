@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225041939) do
+ActiveRecord::Schema.define(version: 20160227005201) do
 
   create_table "hostesses", force: :cascade do |t|
     t.integer "restaraunt_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160225041939) do
     t.integer "four_seat_wait",   default: 0
     t.integer "large_table_wait", default: 0
     t.boolean "waitlist"
+    t.string  "ratings"
   end
 
 end
