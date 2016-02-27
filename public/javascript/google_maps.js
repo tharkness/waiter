@@ -73,6 +73,22 @@ function showPosition(position) {
         title: gon.resteraunts[11]
     });
 
+    var marker6 = new google.maps.Marker({
+        position: resteraunt6,
+        title: gon.resteraunts[13]
+    });
+
+    var marker7 = new google.maps.Marker({
+        position: resteraunt7,
+        title: gon.resteraunts[15]
+    });
+
+    var marker8 = new google.maps.Marker({
+        position: resteraunt8,
+        title: gon.resteraunts[17]
+    });
+
+
     
 
     //----------Add marker to the map---------------
@@ -81,6 +97,9 @@ function showPosition(position) {
     marker3.setMap(map);
     marker4.setMap(map);
     marker5.setMap(map);
+    marker6.setMap(map);
+    marker7.setMap(map);
+    marker8.setMap(map);
 
 
 }
@@ -91,7 +110,9 @@ var resteraunt2 = new google.maps.LatLng(gon.resteraunts[4].lat,gon.resteraunts[
 var resteraunt3 = new google.maps.LatLng(gon.resteraunts[6].lat,gon.resteraunts[6].lng);
 var resteraunt4 = new google.maps.LatLng(gon.resteraunts[8].lat,gon.resteraunts[8].lng);
 var resteraunt5 = new google.maps.LatLng(gon.resteraunts[10].lat,gon.resteraunts[12].lng);
-
+var resteraunt6 = new google.maps.LatLng(gon.resteraunts[14].lat,gon.resteraunts[14].lng);
+var resteraunt7 = new google.maps.LatLng(gon.resteraunts[16].lat,gon.resteraunts[16].lng);
+var resteraunt8 = new google.maps.LatLng(gon.resteraunts[18].lat,gon.resteraunts[18].lng);
 
 //In case shit hits the fan
 
