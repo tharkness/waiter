@@ -3,12 +3,11 @@ $(document).ready(function() {
 
   // Modal stuff, can probably refactor
   $( ".modal-button" ).click(function() {
-    $( ".modal" ).toggleClass( "is-active" );
+    var target = $(this).data('target');
+    $(target).addClass('is-active');
   });
-  $( ".modal-background" ).click(function() {
-    $( ".modal" ).toggleClass( "is-active" );
-  });
-  $( ".modal-close" ).click(function() {
-    $( ".modal" ).toggleClass( "is-active" );
+
+  $('.modal-background, .modal-close').click(function() {
+    $(this).parent().removeClass('is-active');
   });
 });
