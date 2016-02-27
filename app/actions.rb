@@ -41,11 +41,11 @@ end
 
 get '/restaurants/login' do
   @restaurants = Restaraunt.all  
-  erb :'restaurants/login' #TODO: move the original '/login' to this erb
+  erb :'restaurants/login'
 end
 
+# NOTE: this login may be optional for demo, see demologin below
 post '/restaurants/login'do
-# TODO: implement login
   username = params[:username]
   password = params[:password]
   hostess = Hostess.find_by username: username, password: password
@@ -70,7 +70,7 @@ end
 
 get '/logout' do
   session.clear
-  redirect '/restaurants'
+  redirect '/'
 end
 
 # TODO: is this following block optional???
@@ -79,6 +79,7 @@ get '/restaurants/:id/waitlist' do
   erb :'restaurants/waitlist'
 end
 
+# NOTE: below is Tom's crazy awesome engine
 get '/restaurants/increment_two_seat_wait' do
   content_type :json
   { :two_seat_wait => current_hostess(2).increase_two_seat_wait }.to_json
