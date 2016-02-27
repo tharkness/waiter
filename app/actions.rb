@@ -40,7 +40,7 @@ end
 #----------------------RESTAURANT VIEWS----------------------#
 
 get '/restaurants/login' do
-  @restaurants = Restaraunt.all
+  Restaraunt.all ? (@restaurants = Restaraunt.all) : (@restaurants = [])
   erb :'restaurants/login'
 end
 
@@ -147,7 +147,7 @@ get '/restaurants' do
       end
     end
   end
-  
+
   erb :'restaurants/index'
 end
 
