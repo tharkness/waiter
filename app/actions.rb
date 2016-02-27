@@ -15,6 +15,12 @@ helpers do
     session[:resteraunt_list] = hello
   end
 
+  def create_resteraunts
+    session[:resteraunt_list].each do |i|
+      Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"])
+    end
+   end
+
   def current_hostess
     @current_hostess = Hostess.find(session[:hostess_id]) if session[:hostess_id]
   end
@@ -61,7 +67,7 @@ end
 
 # TODO: is this following block optional???
 get '/restaurants/:id/waitlist' do
-  @hostess = current_hostess(2)
+  @hostess = current_hostess
   erb :'restaurants/waitlist'
 end
 
@@ -125,6 +131,7 @@ post '/restaurants' do
   session[:lat] = BigDecimal.new(params[:lat])
   session[:lon] = BigDecimal.new(params[:lon])
   resteraunt_info
+  create_resteraunts
   redirect :'/restaurants'
 end
 
