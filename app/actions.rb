@@ -158,6 +158,7 @@ get '/restaurants' do
       end
     end
   end
+  
   erb :'restaurants/index'
 end
 

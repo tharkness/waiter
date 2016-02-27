@@ -421,3 +421,16 @@ td,
 th {
   padding: 0;
 }
+
+.labels {
+  color: black;
+  background-color: white;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 30px;     
+  border: 2px solid black;
+  white-space: nowrap;
+   }
+

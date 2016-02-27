@@ -64,7 +64,8 @@ function showPosition(position) {
 
     var marker4 = new google.maps.Marker({
         position: resteraunt4,
-        title: gon.resteraunts[9]
+        title: gon.resteraunts[9],
+        labelContent: "$425K"
     });
 
     var marker5 = new google.maps.Marker({
@@ -72,6 +73,7 @@ function showPosition(position) {
         title: gon.resteraunts[11]
     });
 
+    
 
     //----------Add marker to the map---------------
     marker.setMap(map);
