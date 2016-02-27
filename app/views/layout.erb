@@ -35,7 +35,11 @@
         </div>
 
         <div class="column is-hidden-mobile"><!-- login button column -->
-          <a class="button is-pulled-right" href="/restaurants/login">Login</a>
+          <% if session[:hostess_id].nil? %>
+            <a class="button is-pulled-right" href="/restaurants/login">Login</a>
+          <% else %>
+            <a class="button is-warning is-pulled-right" href="/logout">Logout</a>
+          <% end %>
         </div>
 
       </div><!-- end of columns -->
