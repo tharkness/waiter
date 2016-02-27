@@ -40,32 +40,13 @@ end
 #----------------------RESTAURANT VIEWS----------------------#
 
 get '/restaurants/login' do
-  @restaurants = Restaraunt.all  
+  @restaurants = Restaraunt.all
   erb :'restaurants/login'
-end
-
-# NOTE: this login may be optional for demo, see demologin below
-post '/restaurants/login'do
-  username = params[:username]
-  password = params[:password]
-  hostess = Hostess.find_by username: username, password: password
-  if hostess
-    session[:hostess_id] = hostess.id
-    redirect "/restaurants/#{hostess.restaraunt_id}/waitlist"
-  else
-    session[:flash] = "Invalid Login"
-    redirect 'restaurants/login'
-  end
 end
 
 post '/restaurants/demologin' do
   session[:hostess_id] = params[:hostess_id]
-  redirect "/" #NOTE: temporary, waitlist page not created yet
-end
-
-# NOTE: this is a temporary login page with Tom's edits
-get '/login' do
-  erb :'login'
+  redirect "/restaurants/waitlist"
 end
 
 get '/logout' do
@@ -73,8 +54,7 @@ get '/logout' do
   redirect '/'
 end
 
-# TODO: is this following block optional???
-get '/restaurants/:id/waitlist' do
+get '/restaurants/waitlist' do
   @hostess = current_hostess
   erb :'restaurants/waitlist'
 end
