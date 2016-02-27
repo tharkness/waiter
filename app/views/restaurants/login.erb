@@ -2,38 +2,41 @@
 <section class="section">
   <div class="container">
     <div class="columns is-multiline">
-
-<% @restaurants.each do |restaurant| %>
-      <div class="column is-4"><!-- begin of a restaurant card-->
-        <div class="card">
-          <figure class="card-image is-4x3">
-            <img src="http://placehold.it/400x300" alt="">
-          </figure>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <span class="icon is-medium">
-                  <i class="fa fa-cutlery"></i>
-                </span>
+<% if @restaurants[0] %>
+  <% @restaurants.each do |restaurant| %>
+        <div class="column is-4"><!-- begin of a restaurant card-->
+          <div class="card">
+            <figure class="card-image is-4x3">
+              <img src="http://placehold.it/400x300" alt="">
+            </figure>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <span class="icon is-medium">
+                    <i class="fa fa-cutlery"></i>
+                  </span>
+                </div>
+                <div class="media-content">
+                  <p class="title is-5"><%= restaurant.name %></p>
+                  <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
+                </div>
               </div>
-              <div class="media-content">
-                <p class="title is-5"><%= restaurant.name %></p>
-                <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
+              <div class="content">
+                <% if restaurant.hostesses[0] %>
+                  <form action="/restaurants/demologin" method="post">
+                    <input type="hidden" name="hostess_id" id="hostess_id" value="<%= restaurant.hostesses[0].id %>" />
+                  <button type="Submit" class="button is-fullwidth is-primary">log me in</button>
+                </form>
+                <% else %>
+                  <a class="button is-fullwidth is-primary is-outlined">sign me up</a>
+                <% end %>
               </div>
-            </div>
-            <div class="content">
-              <% if restaurant.hostesses[0] %>
-                <form action="/restaurants/demologin" method="post">
-                  <input type="hidden" name="hostess_id" id="hostess_id" value="<%= restaurant.hostesses[0].id %>" />
-                <button type="Submit" class="button is-fullwidth is-primary">log me in</button>
-              </form>
-              <% else %>
-                <a class="button is-fullwidth is-primary is-outlined">sign me up</a>
-              <% end %>
             </div>
           </div>
-        </div>
-      </div><!-- end of a restaurant card -->
+        </div><!-- end of a restaurant card -->
+  <% end %>
+<% else %>
+  <p>Please allow us to check your location and find restaurants near you</p>
 <% end %>
 
     </div><!-- end of columns -->
