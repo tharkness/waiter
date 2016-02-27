@@ -26,6 +26,7 @@
                 <form action="/restaurants/demologin" method="post">
                   <input type="hidden" name="hostess_id" id="hostess_id" value="<%= restaurant.hostesses[0].id %>" />
                 <button type="Submit" class="button is-fullwidth is-primary">log me in</button>
+              </form>
               <% else %>
                 <a class="button is-fullwidth is-primary is-outlined">sign me up</a>
               <% end %>
