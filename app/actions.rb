@@ -37,9 +37,6 @@ before do
   check_flash
 end
 
-
-# Homepage (Root path)
-
 #----------------------RESTAURANT VIEWS----------------------#
 
 get '/restaurants/login' do
@@ -59,6 +56,11 @@ post '/restaurants/login'do
     session[:flash] = "Invalid Login"
     redirect 'restaurants/login'
   end
+end
+
+post '/restaurants/demologin' do
+  session[:hostess_id] = params[:hostess_id]
+  redirect "/" #NOTE: temporary, waitlist page not created yet
 end
 
 # NOTE: this is a temporary login page with Tom's edits

@@ -18,12 +18,14 @@
               </div>
               <div class="media-content">
                 <p class="title is-5"><%= restaurant.name %></p>
-                <p class="subtitle is-6"><%= restaurant.address %></p>
+                <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
               </div>
             </div>
             <div class="content">
               <% if restaurant.hostesses[0] %>
-                <a class="button is-fullwidth is-primary">log me in</a>
+                <form action="/restaurants/demologin" method="post">
+                  <input type="hidden" name="hostess_id" id="hostess_id" value="<%= restaurant.hostesses[0].id %>" />
+                <button type="Submit" class="button is-fullwidth is-primary">log me in</button>
               <% else %>
                 <a class="button is-fullwidth is-primary is-outlined">sign me up</a>
               <% end %>
