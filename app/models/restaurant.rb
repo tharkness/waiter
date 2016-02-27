@@ -1,4 +1,4 @@
-class Restaraunt < ActiveRecord::Base
+class Restaurant < ActiveRecord::Base
 
   has_many :hostesses
 

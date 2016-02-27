@@ -1,6 +1,6 @@
-class CreateRestaraunts < ActiveRecord::Migration
+class CreateRestaurants < ActiveRecord::Migration
   def change
-    create_table :restaraunts do |t|
+    create_table :restaurants do |t|
       t.string :name
       t.string :address
       t.integer :two_seat_wait, default: 0
