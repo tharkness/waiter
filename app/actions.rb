@@ -14,8 +14,12 @@ end
 
 #----------------------RESTAURANT VIEWS----------------------#
 
+get '/restaurants/login'do
+  erb :'restaurants/login'
+end
+
 post '/restaurants/login'do
-# TODO: implement login
+# TODO: implement restaurant login
 end
 
 get '/restaurants/logout' do
