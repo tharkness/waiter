@@ -1,11 +1,13 @@
 <!-- testing section -->
 <section class="section">
   <div class="container">
-
+    <!-- begin of columns -->
     <div class="columns">
-      <div class="column is-4-desktop is-6-tablet"><!-- left column -->
 
-        <!-- row --><!-- tablet & desktop view-->
+      <!-- left column -->
+      <div class="column is-4-desktop is-6-tablet">
+
+        <!-- first row search bar & geo button --><!-- tablet & desktop view-->
         <div class="columns is-hidden-mobile">
           <div class="column">
             <nav class="navbar">
@@ -38,124 +40,73 @@
             </nav>
           </div>
         </div>
-        <!-- end of row -->
+        <!-- end of first row -->
 
-        <!-- row --><!-- mobile view -->
+        <!-- first row search bar & geo button --><!-- mobile view -->
         <div class="columns is-mobile is-hidden-tablet">
           <div class="column is-9">
-
-
-
-                  <p class="control is-grouped">
-                    <input class="input" type="text" placeholder="Find a restaurant">
-                    <button class="button is-primary">
-                      <span class="icon">
-                        <i class="fa fa-search"></i>
-                      </span>
-                    </button>
-                  </p>
+            <p class="control is-grouped">
+              <input class="input" type="text" placeholder="Find a restaurant">
+              <button class="button is-primary">
+                <span class="icon">
+                  <i class="fa fa-search"></i>
+                </span>
+              </button>
+            </p>
           </div>
 
           <div class="column">
-                <!-- hidden form to get long and lat -->
-                <!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
-                <form id="myForm" action='/restaurants' method="post">
-                  <input type='hidden' id="lat" name='lat' value='' />
-                  <input type='hidden' id="lon" name='lon' value='' />
-                  <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
-                  <button class="button is-info" type='submit' name='submit'>
-                    <span class="icon">
-                      <i class="fa fa-street-view"></i>
-                    </span>
-                  </button>
-                </form>
+            <!-- hidden form to get long and lat -->
+            <!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
+            <form id="myForm" action='/restaurants' method="post">
+              <input type='hidden' id="lat" name='lat' value='' />
+              <input type='hidden' id="lon" name='lon' value='' />
+              <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
+              <button class="button is-info" type='submit' name='submit'>
+                <span class="icon">
+                  <i class="fa fa-street-view"></i>
+                </span>
+              </button>
+            </form>
           </div>
-
-
         </div>
-        <!-- end of row -->
+        <!-- end of first row -->
 
+        <!-- beginning of Ruby magic -->
+        <% @restaurants.each do |restaurant| %>
         <!-- row -->
         <div class="columns">
           <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_1">
-              <p class="is-pulled-left">Jason's Seafood Grill</p><p class="tag is-warning is-pulled-right">22 min</p>
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_<%= restaurant.id %>">
+              <p class="is-pulled-left"><%= restaurant.name %></p><p class="tag is-warning is-pulled-right"><%= restaurant.two_seat_wait%> min</p>
             </a>
           </div>
         </div>
         <!-- end of row -->
-
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
-              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
-            </a>
+        <!-- beginning of a modal -->
+        <div id="modal_<%= restaurant.id %>" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <div class="box">
+              <div class="content">
+                <p class="image is-4by3">
+                  <img src="http://placehold.it/800x600">
+                </p>
+                <p class="tag is-warning"><%= restaurant.two_seat_wait %> minute wait</p>
+                <p class="title is-5"><%= restaurant.name %></p>
+                <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
+                <p>This restaurant is the shit. I mean, beef, pork, veggies, zomg, and brains. Review goes here lalalala, the roast brains is.... not worth it. But atmosphere is nice.</p>
+              </div>
+            </div>
           </div>
+          <button class="modal-close"></button>
         </div>
-        <!-- end of row -->
-
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
-              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
-            </a>
-          </div>
-        </div>
-        <!-- end of row -->
-
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
-              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
-            </a>
-          </div>
-        </div>
-        <!-- end of row -->
-
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
-              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
-            </a>
-          </div>
-        </div>
-        <!-- end of row -->
-
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
-              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
-            </a>
-          </div>
-        </div>
-        <!-- end of row -->
-
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
-              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
-            </a>
-          </div>
-        </div>
-        <!-- end of row -->
-
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
-              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
-            </a>
-          </div>
-        </div>
-        <!-- end of row -->
+        <!-- end of modal -->
+        <% end %>
+        <!-- end of Ruby magic -->
 
       </div><!-- end of left column -->
+      <!-- end left column -->
 
       <!-- right side main column, for desktop & tablet -->
       <div class="column is-hidden-mobile">
@@ -163,49 +114,9 @@
           <div id="map"></div>
         </div>
       </div><!-- end right column -->
-    </div><!-- end of columns -->
+      <!-- end right column -->
 
+    </div>
+    <!-- end of columns -->
   </div>
 </section>
-<!-- all your modals are belong to here -->
-
-<!-- beginning of a modal -->
-<div id="modal_1" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <div class="box">
-      <div class="content">
-        <p class="image is-4by3">
-          <img src="http://placehold.it/800x600">
-        </p>
-        <p class="tag is-warning">22 minute wait</p>
-        <p class="title is-5">Jason's Seafood Grill</p>
-        <p class="subtitle is-6">3214 Restaurant Street</p>
-        <p>This restaurant is the shit. I mean, beef, pork, veggies, zomg, and brains. Review goes here lalalala, the roast brains is.... not worth it. But atmosphere is nice.</p>
-      </div>
-    </div>
-  </div>
-  <button class="modal-close"></button>
-</div>
-<!-- end of modal -->
-
-<!-- beginning of a modal -->
-<div id="modal_2" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <div class="box">
-      <div class="content">
-        <p class="image is-4by3">
-          <img src="http://placehold.it/800x600">
-        </p>
-        <p class="tag is-warning">35 minute wait</p>
-        <p class="title is-5">Brasserie Modal</p>
-        <p class="subtitle is-6">3214 Restaurant Street</p>
-        <p>This restaurant is the shit. I mean, beef, pork, veggies, zomg, and brains. Review goes here lalalala, the roast brains is.... not worth it. But atmosphere is nice.</p>
-      </div>
-    </div>
-  </div>
-  <button class="modal-close"></button>
-</div>
-
-<!-- end of modal -->

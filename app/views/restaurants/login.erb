@@ -36,7 +36,21 @@
         </div><!-- end of a restaurant card -->
   <% end %>
 <% else %>
-  <p>Please allow us to check your location and find restaurants near you</p>
+  <div class="column">
+    <p>We need your location to find restaurants near you, then you may login.</p>
+  </div>
+  <div class="column">
+    <form id="myForm" action='/restaurants' method="post">
+      <input type='hidden' id="lat" name='lat' value='' />
+      <input type='hidden' id="lon" name='lon' value='' />
+      <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
+      <button class="button is-info" type='submit' name='submit'>
+        <span class="icon">
+          <i class="fa fa-street-view"></i>
+        </span>
+      </button>
+    </form>
+  </div>
 <% end %>
 
     </div><!-- end of columns -->
