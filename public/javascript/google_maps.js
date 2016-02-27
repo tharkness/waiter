@@ -44,48 +44,51 @@ function showPosition(position) {
     title: 'Hello World!'
   });
 
+
+    //----------- Making markers --------------------
+
+    var marker = new google.maps.Marker({
+        position: resteraunt1,
+        title: gon.resteraunts[3]
+    });
+
+    var marker2 = new google.maps.Marker({
+        position: resteraunt2,
+        title: gon.resteraunts[5]
+    });
+
+    var marker3 = new google.maps.Marker({
+        position: resteraunt3,
+        title: gon.resteraunts[7]
+    });
+
+    var marker4 = new google.maps.Marker({
+        position: resteraunt4,
+        title: gon.resteraunts[9]
+    });
+
+    var marker5 = new google.maps.Marker({
+        position: resteraunt5,
+        title: gon.resteraunts[11]
+    });
+
+
+    //----------Add marker to the map---------------
+    marker.setMap(map);
+    marker2.setMap(map);
+    marker3.setMap(map);
+    marker4.setMap(map);
+    marker5.setMap(map);
+
+
+}
+
+// ----------------------Populates map--------------------------------------------------
 var resteraunt1 = new google.maps.LatLng(gon.resteraunts[2].lat,gon.resteraunts[2].lng);
 var resteraunt2 = new google.maps.LatLng(gon.resteraunts[4].lat,gon.resteraunts[4].lng);
 var resteraunt3 = new google.maps.LatLng(gon.resteraunts[6].lat,gon.resteraunts[6].lng);
 var resteraunt4 = new google.maps.LatLng(gon.resteraunts[8].lat,gon.resteraunts[8].lng);
 var resteraunt5 = new google.maps.LatLng(gon.resteraunts[10].lat,gon.resteraunts[12].lng);
-
-//----------- Making markers --------------------
-
-var marker = new google.maps.Marker({
-    position: resteraunt1,
-    title: gon.resteraunts[3]
-});
-
-var marker2 = new google.maps.Marker({
-    position: resteraunt2,
-    title: gon.resteraunts[5]
-});
-
-var marker3 = new google.maps.Marker({
-    position: resteraunt3,
-    title: gon.resteraunts[7]
-});
-
-var marker4 = new google.maps.Marker({
-    position: resteraunt4,
-    title: gon.resteraunts[9]
-});
-
-var marker5 = new google.maps.Marker({
-    position: resteraunt5,
-    title: gon.resteraunts[11]
-});
-
-
-//----------Add marker to the map---------------
-marker.setMap(map);
-marker2.setMap(map);
-marker3.setMap(map);
-marker4.setMap(map);
-marker5.setMap(map);
-
-}
 
 
 //In case shit hits the fan
