@@ -5,22 +5,76 @@
     <div class="columns">
       <div class="column is-4-desktop is-6-tablet"><!-- left column -->
 
-        <!-- row -->
-        <div class="columns">
+        <!-- row --><!-- tablet & desktop view-->
+        <div class="columns is-hidden-mobile">
           <div class="column">
             <nav class="navbar">
+              <div class="navbar-left">
                 <div class="navbar-item">
                   <p class="control is-grouped">
                     <input class="input" type="text" placeholder="Find a restaurant">
-                    <button class="button">
-                      Feed me
+                    <button class="button is-primary">
+                      <span class="icon">
+                        <i class="fa fa-search"></i>
+                      </span>
                     </button>
                   </p>
                 </div>
+              </div>
+              <div class="navbar-right">
+                <!-- hidden form to get long and lat -->
+                <!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
+                <form id="myForm" action='/restaurants' method="post">
+                  <input type='hidden' id="lat" name='lat' value='' />
+                  <input type='hidden' id="lon" name='lon' value='' />
+                  <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
+                  <button class="button is-info" type='submit' name='submit'>
+                    <span class="icon">
+                      <i class="fa fa-street-view"></i>
+                    </span>
+                  </button>
+                </form>
+              </div>
             </nav>
           </div>
         </div>
         <!-- end of row -->
+
+        <!-- row --><!-- mobile view -->
+        <div class="columns is-mobile is-hidden-tablet">
+          <div class="column is-9">
+
+
+
+                  <p class="control is-grouped">
+                    <input class="input" type="text" placeholder="Find a restaurant">
+                    <button class="button is-primary">
+                      <span class="icon">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </button>
+                  </p>
+          </div>
+
+          <div class="column">
+                <!-- hidden form to get long and lat -->
+                <!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
+                <form id="myForm" action='/restaurants' method="post">
+                  <input type='hidden' id="lat" name='lat' value='' />
+                  <input type='hidden' id="lon" name='lon' value='' />
+                  <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
+                  <button class="button is-info" type='submit' name='submit'>
+                    <span class="icon">
+                      <i class="fa fa-street-view"></i>
+                    </span>
+                  </button>
+                </form>
+          </div>
+
+
+        </div>
+        <!-- end of row -->
+
         <!-- row -->
         <div class="columns">
           <div class="column">
@@ -41,21 +95,73 @@
         </div>
         <!-- end of row -->
 
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
+              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
+              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
+              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
+              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
+              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
+              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
       </div><!-- end of left column -->
 
       <!-- right side main column, for desktop & tablet -->
       <div class="column is-hidden-mobile">
-        <figure class="card-image is-4x3">
-          <!-- hidden form to get long and lat -->
-          <!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
-          <form id="myForm" action='/restaurants' method="post">
-            <input type='hidden' id="lat" name='lat' value='' />
-            <input type='hidden' id="lon" name='lon' value='' />
-            <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
-            <input type='submit' name='submit' value='Use Magic!' />
-          </form>
+        <div class="box">
           <div id="map"></div>
-        </figure>
+        </div>
       </div><!-- end right column -->
     </div><!-- end of columns -->
 
