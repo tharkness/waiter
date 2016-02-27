@@ -2924,6 +2924,9 @@ a.menu-block:hover {
   .hero.is-right {
     text-align: right; }
 
+#dark {
+  background: #f5f7fa; }
+
 .section {
   background: white;
   padding: 40px 20px; }
