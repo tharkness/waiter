@@ -1,42 +1,105 @@
-<div class="container">
-  <div class="left">
-    <p>this is the left class for mobile css</p>
-    <div id="search">placeholder: search field</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
+<!-- testing section -->
+<section class="section">
+  <div class="container">
+
+    <div class="columns">
+      <div class="column is-4-desktop is-6-tablet"><!-- left column -->
+
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <nav class="navbar">
+                <div class="navbar-item">
+                  <p class="control is-grouped">
+                    <input class="input" type="text" placeholder="Find a restaurant">
+                    <button class="button">
+                      Feed me
+                    </button>
+                  </p>
+                </div>
+            </nav>
+          </div>
+        </div>
+        <!-- end of row -->
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_1">
+              <p class="is-pulled-left">Jason's Seafood Grill</p><p class="tag is-warning is-pulled-right">22 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
+        <!-- row -->
+        <div class="columns">
+          <div class="column">
+            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_2">
+              <p class="is-pulled-left">Brasserie Modal</p><p class="tag is-warning is-pulled-right">35 min</p>
+            </a>
+          </div>
+        </div>
+        <!-- end of row -->
+
+      </div><!-- end of left column -->
+
+      <!-- right side main column, for desktop & tablet -->
+      <div class="column is-hidden-mobile">
+        <figure class="card-image is-4x3">
+          <!-- hidden form to get long and lat -->
+          <!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
+          <form id="myForm" action='/restaurants' method="post">
+            <input type='hidden' id="lat" name='lat' value='' />
+            <input type='hidden' id="lon" name='lon' value='' />
+            <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
+            <input type='submit' name='submit' value='Use Magic!' />
+          </form>
+          <div id="map"></div>
+        </figure>
+      </div><!-- end right column -->
+    </div><!-- end of columns -->
+
   </div>
+</section>
+<!-- all your modals are belong to here -->
 
-  <p id="demo">Message for location consent </p>
-  <div class="right">
-
-  <form id="myForm" action='/restaurants' method="post">
-  <input type='hidden' id="lat" name='lat' value='' />
-  <input type='hidden' id="lon" name='lon' value='' />
-  <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
-  <input type='submit' name='submit' value='Use Magic!' />
-</form>
-
-
-
-
-  <p>this is the right class for gmaps for desktop</p>
-    <div id="map">
-      <p>where map goes</p>
+<!-- beginning of a modal -->
+<div id="modal_1" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <div class="content">
+        <p class="image is-4by3">
+          <img src="http://placehold.it/800x600">
+        </p>
+        <p class="tag is-warning">22 minute wait</p>
+        <p class="title is-5">Jason's Seafood Grill</p>
+        <p class="subtitle is-6">3214 Restaurant Street</p>
+        <p>This restaurant is the shit. I mean, beef, pork, veggies, zomg, and brains. Review goes here lalalala, the roast brains is.... not worth it. But atmosphere is nice.</p>
+      </div>
     </div>
   </div>
+  <button class="modal-close"></button>
+</div>
+<!-- end of modal -->
+
+<!-- beginning of a modal -->
+<div id="modal_2" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <div class="content">
+        <p class="image is-4by3">
+          <img src="http://placehold.it/800x600">
+        </p>
+        <p class="tag is-warning">35 minute wait</p>
+        <p class="title is-5">Brasserie Modal</p>
+        <p class="subtitle is-6">3214 Restaurant Street</p>
+        <p>This restaurant is the shit. I mean, beef, pork, veggies, zomg, and brains. Review goes here lalalala, the roast brains is.... not worth it. But atmosphere is nice.</p>
+      </div>
+    </div>
+  </div>
+  <button class="modal-close"></button>
 </div>
 
-
-<!-- Use @restaurant_list for restaurant's info, it is an Array[], of Hashes {}, the keys are strings " ", keys include: "name", "opening hours", "vicinity", "rating". "opening hours" is a hash {"open_now"(this is a key)=>true(this is a value). Good luck! -->
-
-
-
-<!-- To change width and height go to application.js -->
-
-<!-- hidden form to get long and lat -->
-
-
- 
+<!-- end of modal -->

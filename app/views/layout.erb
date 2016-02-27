@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -12,23 +13,50 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/stylesheets/application.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <!-- Added all JavaScript files to end of body....async issues -->
 
   <title>Waiter - for the hungry</title>
 </head>
 <body>
-  <nav>
-    <div><a href='/restaurants'>Home</a></div>
-  </nav>
+  <div class="section" id="dark"><!-- the id is a customisation of the Bulma source code-->
+    <div class="container">
+      <div class="columns is-mobile">
+
+        <div class="column is-11"><!-- title column -->
+          <div class="heading">
+            <h1 class="title">Waiter</h1>
+            <h2 class="subtitle">it saves you time, go eat more</h2>
+          </div>
+        </div>
+
+        <div class="column"><!-- login button column -->
+          <a class="button is-pulled-right" href="/restaurants/login">Login</a>
+        </div>
+
+      </div><!-- end of columns -->
+    </div>
+  </div>
+
   <%= yield %>
-  <!--__________JavaScript_________________ -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/javascript/application.js"></script>
-  <!-- Google maps api -->
-  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <script src="/javascript/google_maps.js"></script>
-  <script src="/javascript/application.js"></script>
-  <script src="/javascript/waitlist.js"></script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content is-centered">
+    <p><strong>Waiter</strong> by three hungry web devs</p>
+    </div>
+  </div>
+</footer>
+
+<!--__________JavaScript_________________ -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/javascript/application.js"></script>
+<!-- Google maps api -->
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="/javascript/google_maps.js"></script>
+<script src="/javascript/application.js"></script>
+<script src="/javascript/waitlist.js"></script>
+
 </body>
 </html>

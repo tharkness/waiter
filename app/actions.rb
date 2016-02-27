@@ -42,8 +42,8 @@ end
 
 #----------------------RESTAURANT VIEWS----------------------#
 
-get '/login' do
-  erb :'/login'
+get '/restaurants/login' do
+  erb :'/restaurants/login' #NOTE: move the original '/login' to this erb
 end
 
 post '/restaurants/login'do
@@ -141,12 +141,12 @@ get '/restaurants' do
   @resteraunts_list = session[:resteraunt_list]
   resteraunts = @resteraunts_list
   if resteraunts == nil
-    
+
   else
-    resteraunts.each do |i| 
+    resteraunts.each do |i|
       i.each do |key, value|
         if key == "geometry" || key == "name"
-         gon.resteraunts << value if key == "name" 
+         gon.resteraunts << value if key == "name"
           if value.is_a? Hash
             value.each do |key, value|
               if key == "location"
@@ -173,26 +173,3 @@ end
 get '/debug' do
   erb :debug
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
