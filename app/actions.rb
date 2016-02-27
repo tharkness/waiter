@@ -43,7 +43,8 @@ end
 #----------------------RESTAURANT VIEWS----------------------#
 
 get '/restaurants/login' do
-  erb :'/restaurants/login' #NOTE: move the original '/login' to this erb
+  @restaurants = Restaraunt.all  
+  erb :'restaurants/login' #TODO: move the original '/login' to this erb
 end
 
 post '/restaurants/login'do
@@ -56,8 +57,13 @@ post '/restaurants/login'do
     redirect "/restaurants/#{hostess.restaraunt_id}/waitlist"
   else
     session[:flash] = "Invalid Login"
-    redirect '/login'
+    redirect 'restaurants/login'
   end
+end
+
+# NOTE: this is a temporary login page with Tom's edits
+get '/login' do
+  erb :'login'
 end
 
 get '/logout' do
