@@ -25,8 +25,8 @@ function showPosition(position) {
 
     // -----------edit height and width--------------
 
-    mapholder.style.height='250px';
-    mapholder.style.width='500px';
+//    mapholder.style.height='250px';
+//    mapholder.style.width='500px';
 
     var myOptions={
     center:latlon,zoom:14,

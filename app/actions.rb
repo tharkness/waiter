@@ -37,17 +37,15 @@ before do
   check_flash
 end
 
-
-# Homepage (Root path)
-
 #----------------------RESTAURANT VIEWS----------------------#
 
 get '/restaurants/login' do
-  erb :'/restaurants/login' #NOTE: move the original '/login' to this erb
+  @restaurants = Restaraunt.all  
+  erb :'restaurants/login'
 end
 
+# NOTE: this login may be optional for demo, see demologin below
 post '/restaurants/login'do
-# TODO: implement login
   username = params[:username]
   password = params[:password]
   hostess = Hostess.find_by username: username, password: password
@@ -56,13 +54,23 @@ post '/restaurants/login'do
     redirect "/restaurants/#{hostess.restaraunt_id}/waitlist"
   else
     session[:flash] = "Invalid Login"
-    redirect '/login'
+    redirect 'restaurants/login'
   end
+end
+
+post '/restaurants/demologin' do
+  session[:hostess_id] = params[:hostess_id]
+  redirect "/" #NOTE: temporary, waitlist page not created yet
+end
+
+# NOTE: this is a temporary login page with Tom's edits
+get '/login' do
+  erb :'login'
 end
 
 get '/logout' do
   session.clear
-  redirect '/restaurants'
+  redirect '/'
 end
 
 # TODO: is this following block optional???
@@ -71,6 +79,7 @@ get '/restaurants/:id/waitlist' do
   erb :'restaurants/waitlist'
 end
 
+# NOTE: below is Tom's crazy awesome engine
 get '/restaurants/increment_two_seat_wait' do
   content_type :json
   { :two_seat_wait => current_hostess(2).increase_two_seat_wait }.to_json
