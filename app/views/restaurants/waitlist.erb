@@ -1,11 +1,22 @@
 <section class="section">
   <div class="container">
     <div class="columns">
+      <!-- restaurant info -->
+      <div class="column">
+        <div class="tabs is-fullwidth is-centered">
+          <ul>
+            <li class="is-active"><span><i class="fa fa-user"></i><strong><%= @hostess.username %></strong> @ <%= @hostess.restaraunt.name %></span></li>
+            </ul>
+        </div>
+      </div>
+      <!-- end restaurant info -->
+    </div>
+    <div class="columns">
       <!-- left side column for waitlists -->
       <div class="column is-6-desktop is-5-tablet">
-
+        <div class="container">&nbsp;</div>
         <!-- left side waitlist row item -->
-        <div class="message">
+        <div class="message is-warning">
         <div class="columns">
           <div class="column is-hidden-touch">
             <a class="box">
@@ -13,36 +24,154 @@
             </a>
           </div>
           <div class="column is-hidden-desktop">
-            <a class="tag is-medium is-success">
+            <a class="tag is-medium is-primary">
               <i class="fa fa-check"></i>
             </a>
           </div>
           <div class="column is-4">
-            <h1 class="title is-text-centered is-5">Damien</h1>
-            <h2 class="subtitle is-text-centered is-6">2 guests</h2>
+            <h1 class="title is-text-centered is-5">Tom</h1>
+            <h2 class="subtitle is-text-centered is-6">3 guests</h2>
           </div>
           <div class="column is-6">
             <div class="columns">
               <div class="column">
-                <a class="button is-small is-outlined is-pulled-right">
+                <span class="icon is-small is-outlined is-pulled-right">
                   <i class="fa fa-chevron-down"></i>
-                </a>
+                </span>
               </div>
               <div class="column is-3">
-                <h1 class="title is-text-centered is-4">14</h1>
+                <h1 class="title is-text-centered is-4">17</h1>
                 <h2 class="subtitle is-text-centered is-6">min</h2>
               </div>
               <div class="column">
-                <a class="button is-small is-outlined">
+                <span class="icon is-small is-outlined">
                   <i class="fa fa-chevron-up"></i>
-                </a>
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
       <!-- done left side waitlist row item -->
+      <div class="container">&nbsp;</div>
+      <!-- left side waitlist row item -->
+      <div class="message is-success">
+      <div class="columns">
+        <div class="column is-hidden-touch">
+          <a class="box">
+            <i class="fa fa-check"></i>
+          </a>
+        </div>
+        <div class="column is-hidden-desktop">
+          <a class="tag is-medium is-primary">
+            <i class="fa fa-check"></i>
+          </a>
+        </div>
+        <div class="column is-4">
+          <h1 class="title is-text-centered is-5">Damien</h1>
+          <h2 class="subtitle is-text-centered is-6">2 guests</h2>
+        </div>
+        <div class="column is-6">
+          <div class="columns">
+            <div class="column">
+              <span class="icon is-small is-outlined is-pulled-right">
+                <i class="fa fa-chevron-down"></i>
+              </span>
+            </div>
+            <div class="column is-3">
+              <h1 class="title is-text-centered is-4">8</h1>
+              <h2 class="subtitle is-text-centered is-6">min</h2>
+            </div>
+            <div class="column">
+              <span class="icon is-small is-outlined">
+                <i class="fa fa-chevron-up"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- done left side waitlist row item -->
+    <div class="container">&nbsp;</div>
+    <!-- left side waitlist row item -->
+    <div class="message is-success">
+    <div class="columns">
+      <div class="column is-hidden-touch">
+        <a class="box">
+          <i class="fa fa-check"></i>
+        </a>
+      </div>
+      <div class="column is-hidden-desktop">
+        <a class="tag is-medium is-primary">
+          <i class="fa fa-check"></i>
+        </a>
+      </div>
+      <div class="column is-4">
+        <h1 class="title is-text-centered is-5">Billiam</h1>
+        <h2 class="subtitle is-text-centered is-6">1 guest</h2>
+      </div>
+      <div class="column is-6">
+        <div class="columns">
+          <div class="column">
+            <span class="icon is-small is-outlined is-pulled-right">
+              <i class="fa fa-chevron-down"></i>
+            </span>
+          </div>
+          <div class="column is-3">
+            <h1 class="title is-text-centered is-4">2</h1>
+            <h2 class="subtitle is-text-centered is-6">min</h2>
+          </div>
+          <div class="column">
+            <span class="icon is-small is-outlined">
+              <i class="fa fa-chevron-up"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- done left side waitlist row item -->
+  <div class="container">&nbsp;</div>
+  <!-- left side waitlist row item -->
+  <div class="message is-danger">
+  <div class="columns">
+    <div class="column is-hidden-touch">
+      <a class="box">
+        <i class="fa fa-check"></i>
+      </a>
+    </div>
+    <div class="column is-hidden-desktop">
+      <a class="tag is-medium is-primary">
+        <i class="fa fa-check"></i>
+      </a>
+    </div>
+    <div class="column is-4">
+      <h1 class="title is-text-centered is-5">Justine</h1>
+      <h2 class="subtitle is-text-centered is-6">5+ guests</h2>
+    </div>
+    <div class="column is-6">
+      <div class="columns">
+        <div class="column">
+          <span class="icon is-small is-outlined is-pulled-right">
+            <i class="fa fa-chevron-down"></i>
+          </span>
+        </div>
+        <div class="column is-3">
+          <h1 class="title is-text-centered is-4">33</h1>
+          <h2 class="subtitle is-text-centered is-6">min</h2>
+        </div>
+        <div class="column">
+          <span class="icon is-small is-outlined">
+            <i class="fa fa-chevron-up"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- done left side waitlist row item -->
+
+    </div>
 
       <!-- right side column for settings -->
       <div class="column">
@@ -55,15 +184,17 @@
               <h2 class="subtitle is-text-centered">guests</h2>
             </div>
             <div class="column is-5">
-              <p class="control is-grouped">
-                <input class="input is-large" type="text" placeholder="time">
-                <a class="button is-large is-info">
-                  set
-                </a>
-              </p>
+              <form method="get" action="set_two_seat_wait">
+                <p class="control is-grouped">
+                  <input class="input is-large" type="number" name="two_seat_time" placeholder="time">
+                  <button class="button is-large is-info is-outlined" type="submit">
+                    set
+                  </button>
+                </p>
+              </form>
             </div>
             <div class="column is-4">
-              <a class="button is-large is-outlined">
+              <a class="button is-large is-outlined" type="button" onClick="reset_two_seat_wait()">
                 <i class="fa fa-clock-o"></i>
                   clear
               </a>
@@ -77,16 +208,16 @@
               </span>
             </div>
             <div class="column">
-              <span class="icon is-large is-pulled-right">
+              <span class="icon is-large is-pulled-right" type="button" onclick="decrement_two_seat_wait()">
                 <i class="fa fa-chevron-down"></i>
               </span>
             </div>
             <div class="column">
-              <h1 class="title is-text-centered is-1">14</h1>
+              <h1 class="title is-text-centered is-1" id="two_seat_wait"><%= current_hostess.restaraunt.two_seat_wait %></h1>
               <h2 class="subtitle is-text-centered">minutes</h2>
             </div>
             <div class="column">
-              <span class="icon is-large">
+              <span class="icon is-large" type="button" onClick="increment_two_seat_wait()">
                 <i class="fa fa-chevron-up"></i>
               </span>
             </div>
@@ -102,15 +233,17 @@
               <h2 class="subtitle is-text-centered">guests</h2>
             </div>
             <div class="column is-5">
-              <p class="control is-grouped">
-                <input class="input is-large" type="text" placeholder="time">
-                <a class="button is-large is-info">
-                  set
-                </a>
-              </p>
+              <form method="get" action="set_four_seat_wait">
+                <p class="control is-grouped">
+                  <input class="input is-large" type="number" name="four_seat_time" placeholder="time">
+                  <button class="button is-large is-info is-outlined" type="submit">
+                    set
+                  </button>
+                </p>
+              </form>
             </div>
             <div class="column is-4">
-              <a class="button is-large is-outlined">
+              <a class="button is-large is-outlined" type="button" onClick="reset_four_seat_wait()">
                 <i class="fa fa-clock-o"></i>
                   clear
               </a>
@@ -124,16 +257,16 @@
               </span>
             </div>
             <div class="column">
-              <span class="icon is-large is-pulled-right">
+              <span class="icon is-large is-pulled-right" type="button" onClick="decrement_four_seat_wait()">
                 <i class="fa fa-chevron-down"></i>
               </span>
             </div>
             <div class="column">
-              <h1 class="title is-text-centered is-1">19</h1>
+              <h1 class="title is-text-centered is-1" id="four_seat_wait"><%= current_hostess.restaraunt.four_seat_wait %></h1>
               <h2 class="subtitle is-text-centered">minutes</h2>
             </div>
             <div class="column">
-              <span class="icon is-large">
+              <span class="icon is-large" type="button" onClick="increment_four_seat_wait()">
                 <i class="fa fa-chevron-up"></i>
               </span>
             </div>
@@ -149,15 +282,17 @@
               <h2 class="subtitle is-text-centered">guests</h2>
             </div>
             <div class="column is-5">
-              <p class="control is-grouped">
-                <input class="input is-large" type="text" placeholder="time">
-                <a class="button is-large is-info">
-                  set
-                </a>
-              </p>
+              <form method="get" action="set_large_table_wait">
+                <p class="control is-grouped">
+                  <input class="input is-large" type="number" name="large_table_time" placeholder="time">
+                  <button class="button is-large is-info is-outlined" type="submit">
+                    set
+                  </button>
+                </p>
+              </form>
             </div>
             <div class="column is-4">
-              <a class="button is-large is-outlined">
+              <a class="button is-large is-outlined" type="button" onClick="reset_large_table_wait()">
                 <i class="fa fa-clock-o"></i>
                   clear
               </a>
@@ -171,16 +306,16 @@
               </span>
             </div>
             <div class="column">
-              <span class="icon is-large is-pulled-right">
+              <span class="icon is-large is-pulled-right" type="button" onClick="decrement_large_table_wait()">
                 <i class="fa fa-chevron-down"></i>
               </span>
             </div>
             <div class="column">
-              <h1 class="title is-text-centered is-1">32</h1>
+              <h1 class="title is-text-centered is-1" id="large_table_wait"><%= current_hostess.restaraunt.large_table_wait %></h1>
               <h2 class="subtitle is-text-centered">minutes</h2>
             </div>
             <div class="column">
-              <span class="icon is-large">
+              <span class="icon is-large" type="button" onClick="increment_large_table_wait()">
                 <i class="fa fa-chevron-up"></i>
               </span>
             </div>
@@ -193,37 +328,13 @@
   </div>
 </section>
 
-<table border="1" style="width:100%">
-  <tr>
-    <td><button type="button" onclick="decrement_two_seat_wait()" > - 2min </button></td>
-    <td><button type="button" onClick="reset_two_seat_wait()"> All Clear </button></td>
-    <td id="two_seat_wait"><%= current_hostess.restaraunt.two_seat_wait %></td>
-    <td><form method="get" action="set_two_seat_wait"><input type="number" name="two_seat_time" placeholder="Enter Wait Time..."><button type="submit"> Set Wait Time </button></input></form></td></td>
-    <td><button type="button" onClick="increment_two_seat_wait()"> + 2min </button></td>
-  </tr>
-  <tr>
-    <td><button type="button" onClick="decrement_four_seat_wait()"> - 2min </button></td>
-    <td><button type="button" onClick="reset_four_seat_wait()"> All Clear </button></td>
-    <td id="four_seat_wait"><%= current_hostess.restaraunt.four_seat_wait %></td>
-    <td><form method="get" action="set_four_seat_wait"><input type="number" name="four_seat_time" placeholder="Enter Wait Time..."><button type="submit"> Set Wait Time </button></input></form></td></td>
-    <td><button type="button" onClick="increment_four_seat_wait()"> + 2min </button></td>
-  </tr>
-  <tr>
-    <td><button type="button" onClick="decrement_large_table_wait()"> - 2min </button></td>
-    <td><button type="button" onClick="reset_large_table_wait()"> All Clear </button></td>
-    <td id="large_table_wait"><%= current_hostess.restaraunt.large_table_wait %></td>
-    <td><form method="get" action="set_large_table_wait"><input type="number" name="large_table_time" placeholder="Enter Wait Time..."><button type="submit"> Set Wait Time </button></input></form></td></td>
-    <td><button type="button" onClick="increment_large_table_wait()"> + 2min </button></td>
-  </tr>
-</table>
-
 
 <!-- begin of a modal -->
 <div id="modal_1" class="modal">
   <div class="modal-background"></div>
   <div class="modal-content">
     <div class="box">
-      
+
     </div>
   </div>
   <button class="modal-close"></button>
