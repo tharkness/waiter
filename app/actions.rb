@@ -50,6 +50,17 @@ helpers do
     result
   end
 
+  def party_size_wait(restaurant)
+    case session[:party_size].to_i
+    when 2
+      restaurant.two_seat_wait
+    when 4
+      restaurant.four_seat_wait
+    when 5
+      restaurant.large_table_wait
+    end
+  end
+
 end
 
 before do
