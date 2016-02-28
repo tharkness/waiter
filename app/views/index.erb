@@ -1,0 +1,50 @@
+<section class="section">
+<div class="container is-hidden-mobile">
+  <div class="columns">
+    <div class="column">
+      <div class="header-unit">
+        <div id="video-container">
+        <video autoplay loop class="fillWidth">
+        <source src="/videos/video.mp4" type="video/mp4"/>
+        <source src="/videos/video.ogg" type="video/ogg"/>
+        <source src="/videos/video.webm" type="video/webm"/>
+        Your browser does not support the video tag.
+        </video>
+        </div><!-- end video-container -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="columns is-mobile">
+    <div class="column">
+    </div>
+    <div class="column is-3-desktop is-3-tablet is-8-mobile">
+      <form id="myForm" action='/restaurants' method="post">
+        <input type='hidden' id="lat" name='lat' value='' />
+        <input type='hidden' id="lon" name='lon' value='' />
+        <p class="control is-grouped">
+            <span class="select">
+              <select name="party_size">
+                <option value="2">Party size:</option>
+                <option value="2">1</option>
+                <option value="2">2</option>
+                <option value="4">3</option>
+                <option value="4">4</option>
+                <option value="5">more than 4</option>
+              </select>
+            </span>
+          <!-- </p>
+        <p class="control"> -->
+            <button class="button is-primary" type='submit' name='submit'>
+              go!
+            </button>
+          </p>
+      </form>
+    </div>
+    <div class="column">
+    </div>
+  </div>
+</div>
+</section>

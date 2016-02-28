@@ -16,3 +16,24 @@
   width: 100% !important;
   height: 100% !important;
 }
+.header-unit {
+  height: 471px;
+  position: relative;
+}
+#video-container {
+	position: absolute;
+}
+#video-container {
+	top:0%;
+	left:0%;
+	height:100%;
+	width:100%;
+	overflow: hidden;
+}
+video {
+	position:absolute;
+	z-index:0;
+}
+video.fillWidth {
+	width: 100%;
+}

@@ -27,7 +27,7 @@ helpers do
         end
       end
       hello.each do |i|
-      Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"], google_id: i["place_id"]) 
+      Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"], google_id: i["place_id"])
       end
     end
     # binding.pry
@@ -40,6 +40,14 @@ helpers do
   def check_flash
     @flash = session[:flash] if session[:flash]
     session[:flash] = nil
+  end
+
+  def return_eight(array)
+    result = []
+    array.each_with_index do |item, index|
+      result << item if index <= 7
+    end
+    result
   end
 
 end
@@ -122,16 +130,17 @@ end
 # NOTE: redirects to the restaurant's waitlist if logged in
 # else goes to the customer's view of all restaurants
 get '/' do
-  if session[:restaurant_id]
+  if session[:hostess_id]
     redirect '/restaurants/waitlist'
   else
-    redirect '/restaurants'
+    erb :index
   end
 end
 
 post '/restaurants' do
   session[:lat] = BigDecimal.new(params[:lat])
   session[:lon] = BigDecimal.new(params[:lon])
+  session[:party_size] = params[:party_size]
   resteraunt_info
   # create_resteraunts
   redirect :'/restaurants'
@@ -140,7 +149,7 @@ end
 
 get '/restaurants' do
   @resteraunts_list = resteraunt_info
-  @restaurants = Restaraunt.all[0..7]
+  @restaurants = return_eight(Restaraunt.all)
   erb :'restaurants/index'
 end
 
