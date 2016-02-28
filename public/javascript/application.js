@@ -10,4 +10,8 @@ $(document).ready(function() {
   $('.modal-background, .modal-close').click(function() {
     $(this).parent().removeClass('is-active');
   });
+
+  
 });
+
+ 

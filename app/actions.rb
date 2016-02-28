@@ -9,8 +9,9 @@ helpers do
     resteraunt = JSON.parse(response.body)
     hello = resteraunt["results"][0..8]
     hello.each do |i|
-      i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours" || key == "geometry" || key == "place_id"}
+      i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours" || key == "geometry" || key == "place_id" || key == "geometry"}
     end
+    
     goodbye = hello
     gon.resteraunts = []
     goodbye.each do |i|
@@ -27,7 +28,7 @@ helpers do
         end
       end
       hello.each do |i|
-      Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"], google_id: i["place_id"])
+        Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"], google_id: i["place_id"], lat: i["geometry"]["location"]["lat"], lon: i["geometry"]["location"]["lng"])
       end
     end
     # binding.pry
