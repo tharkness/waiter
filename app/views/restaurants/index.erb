@@ -64,7 +64,7 @@
         <div class="columns">
           <div class="column">
             <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_<%= restaurant.id %>">
-              <p class="is-pulled-left"><%= restaurant.name %></p><p class="tag is-warning is-pulled-right"><%= restaurant.two_seat_wait%> min</p>
+              <p class="is-pulled-left"><%= restaurant.name %></p><%= homepage_wait_tag(restaurant) %>
             </a>
           </div>
         </div>
@@ -78,10 +78,10 @@
                 <p class="image is-4by3">
                   <img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7Clabel:W%7C<%=restaurant.lat%>,<%=restaurant.lon%>&size=800x600&zoom=18&key=AIzaSyBbWEvWO9HjupoJUCoNMkaEdIWIvgjAWkQ"/>
                 </p>
-                <p><span class="tag is-warning"><%= restaurant.two_seat_wait %> minute wait</p</p>
+                <%= homepage_wait_tag(restaurant) %>
                 <p class="title is-5"><%= restaurant.name %></p>
                 <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
-                <p>This restaurant is the shit. I mean, beef, pork, veggies, zomg, and brains. Review goes here lalalala, the roast brains is.... not a smart choice. But atmosphere is nice.</p>
+                <p>Good eats, tasty brains. Some people can't handle the spice... you can!</p>
               </div>
             </div>
           </div>
