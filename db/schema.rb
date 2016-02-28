@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227231946) do
+ActiveRecord::Schema.define(version: 20160228200227) do
 
   create_table "hostesses", force: :cascade do |t|
     t.integer "restaraunt_id"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20160227231946) do
     t.boolean "waitlist"
     t.string  "ratings"
     t.string  "google_id"
+    t.string  "lat"
+    t.string  "lon"
   end
 
 end
