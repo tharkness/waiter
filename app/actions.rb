@@ -130,7 +130,7 @@ get '/restaurants' do
   gon.resteraunts = []
   @resteraunts_list = session[:resteraunt_list]
   resteraunts = @resteraunts_list
-  @restaurants = Restaraunt.all
+  @restaurants = Restaraunt.all[0..7]
   if resteraunts == nil
 
   else
