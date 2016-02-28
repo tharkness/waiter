@@ -77,7 +77,8 @@ helpers do
         "<p class='tag is-warning is-pulled-right'>#{wait_time} min</p>"
       end
     else
-      "<p class='tag is-pulled-right'>laggard</p>"
+      # NOTE: enable this to show a tag for non-member-restaurants
+      # "<p class='tag is-pulled-right'>n/a</p>"
     end
   end
 # END helper methods for the index page
