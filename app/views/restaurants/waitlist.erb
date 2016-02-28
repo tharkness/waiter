@@ -3,18 +3,21 @@
     <td><button type="button" onclick="decrement_two_seat_wait()" > - 2min </button></td>
     <td><button type="button" onClick="reset_two_seat_wait()"> All Clear </button></td>
     <td id="two_seat_wait"><%= current_hostess.restaraunt.two_seat_wait %></td>
+    <td><form method="get" action="set_two_seat_wait"><input type="number" name="two_seat_time" placeholder="Enter Wait Time..."><button type="submit"> Set Wait Time </button></input></form></td></td>
     <td><button type="button" onClick="increment_two_seat_wait()"> + 2min </button></td>
   </tr>
   <tr>
     <td><button type="button" onClick="decrement_four_seat_wait()"> - 2min </button></td>
     <td><button type="button" onClick="reset_four_seat_wait()"> All Clear </button></td>
     <td id="four_seat_wait"><%= current_hostess.restaraunt.four_seat_wait %></td>
+    <td><form method="get" action="set_four_seat_wait"><input type="number" name="four_seat_time" placeholder="Enter Wait Time..."><button type="submit"> Set Wait Time </button></input></form></td></td>
     <td><button type="button" onClick="increment_four_seat_wait()"> + 2min </button></td>
   </tr>
   <tr>
     <td><button type="button" onClick="decrement_large_table_wait()"> - 2min </button></td>
     <td><button type="button" onClick="reset_large_table_wait()"> All Clear </button></td>
     <td id="large_table_wait"><%= current_hostess.restaraunt.large_table_wait %></td>
+    <td><form method="get" action="set_large_table_wait"><input type="number" name="large_table_time" placeholder="Enter Wait Time..."><button type="submit"> Set Wait Time </button></input></form></td></td>
     <td><button type="button" onClick="increment_large_table_wait()"> + 2min </button></td>
   </tr>
 </table>
