@@ -47,80 +47,58 @@ function showPosition(position) {
 
     //----------- Making markers --------------------
 
-    function drop() {
-  for (var i =0; i < markerArray.length; i++) {
-    setTimeout(function() {
-      addMarkerMethod();
-    }, i * 200);
-  }
-}
+//     function drop() {
+//   for (var i =0; i < markerArray.length; i++) {
+//     setTimeout(function() {
+//       addMarkerMethod();
+//     }, i * 200);
+//   }
+// }
 
-    var marker = new google.maps.Marker({
-        position: resteraunt1,
-        label: gon.resteraunts[3].charAt(0)
-        
+
+var markers=[];
+var contents = [];
+var infowindows = [];
+
+
+
+//----------Add markers to the map---------------
+
+for (i = 0; i < 9; i++) {
+    a = i * 2 
+    markers[i] = new google.maps.Marker({
+        position: new google.maps.LatLng(gon.resteraunts[(a)].lat, gon.resteraunts[(a)].lng),
+        label: gon.resteraunts[(a - 1)]
     });
 
-    var marker2 = new google.maps.Marker({
-        position: resteraunt2,
-        label: gon.resteraunts[5].charAt(0)
+    markers[i].index = i; //add index property
+    contents[i] = ['<p>',gon.resteraunts[(a - 1)],'</p>'].join("");
+
+
+    infowindows[i] = new google.maps.InfoWindow({
+        content: contents[i],
+        maxWidth: 300
     });
 
-    var marker3 = new google.maps.Marker({
-        position: resteraunt3,
-        label: gon.resteraunts[7].charAt(0)
-    });
-
-    var marker4 = new google.maps.Marker({
-        position: resteraunt4,
-        label: gon.resteraunts[9].charAt(0)
-    });
-
-    var marker5 = new google.maps.Marker({
-        position: resteraunt5,
-        label: gon.resteraunts[11].charAt(0)
-    });
-
-    var marker6 = new google.maps.Marker({
-        position: resteraunt6,
-        label: gon.resteraunts[13].charAt(0)
-    });
-
-    var marker7 = new google.maps.Marker({
-        position: resteraunt7,
-        label: gon.resteraunts[15].charAt(0)
-    });
-
-    var marker8 = new google.maps.Marker({
-        position: resteraunt8,
-        label: gon.resteraunts[17].charAt(0)
-    });
-
-
-    
-
-    //----------Add marker to the map---------------
-    marker.setMap(map);
-    marker2.setMap(map);
-    marker3.setMap(map);
-    marker4.setMap(map);
-    marker5.setMap(map);
-    marker6.setMap(map);
-    marker7.setMap(map);
-    marker8.setMap(map);
-
-
+    google.maps.event.addListener(markers[i], 'click', function() {
+        console.log(this.index); // this will give correct index
+        console.log(i); //this will always give 10 for you
+        infowindows[this.index].open(map,markers[this.index]);
+        map.panTo(markers[this.index].getPosition());
+    });  
 }
 
 // ----------------------Populates map--------------------------------------------------
-var resteraunt1 = new google.maps.LatLng(gon.resteraunts[2].lat,gon.resteraunts[2].lng);
-var resteraunt2 = new google.maps.LatLng(gon.resteraunts[4].lat,gon.resteraunts[4].lng);
-var resteraunt3 = new google.maps.LatLng(gon.resteraunts[6].lat,gon.resteraunts[6].lng);
-var resteraunt4 = new google.maps.LatLng(gon.resteraunts[8].lat,gon.resteraunts[8].lng);
-var resteraunt5 = new google.maps.LatLng(gon.resteraunts[10].lat,gon.resteraunts[12].lng);
-var resteraunt6 = new google.maps.LatLng(gon.resteraunts[14].lat,gon.resteraunts[14].lng);
-var resteraunt7 = new google.maps.LatLng(gon.resteraunts[16].lat,gon.resteraunts[16].lng);
-var resteraunt8 = new google.maps.LatLng(gon.resteraunts[18].lat,gon.resteraunts[18].lng);
+
+for (i = 0; i < 8; i++) {
+  markers[i].setMap(map);
+}
+
+}
+
+
+
+
 
 //In case shit hits the fan
 
