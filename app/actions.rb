@@ -7,7 +7,7 @@ helpers do
     uri = URI.parse("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{session[:lat]},#{session[:lon]}&radius=200&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4")
     response = Net::HTTP.get_response(uri)
     resteraunt = JSON.parse(response.body)
-    hello = resteraunt["results"][0..8]
+    hello = resteraunt["results"][0..7]
     hello.each do |i|
       i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours" || key == "geometry"}
     end
@@ -129,6 +129,7 @@ get '/restaurants' do
   gon.resteraunts = []
   @resteraunts_list = session[:resteraunt_list]
   resteraunts = @resteraunts_list
+  @restaurants = Restaraunt.all
   if resteraunts == nil
 
   else
