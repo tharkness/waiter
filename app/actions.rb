@@ -216,7 +216,7 @@ end
 post '/restaurants' do
   session[:lat] = BigDecimal.new(params[:lat])
   session[:lon] = BigDecimal.new(params[:lon])
-  session[:party_size] = params[:party_size]
+  session[:party_size] = params[:party_size] if params[:party_size]
   resteraunt_info
   # create_resteraunts
   redirect :'/restaurants'
