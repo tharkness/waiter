@@ -30,6 +30,14 @@ helpers do
     session[:flash] = nil
   end
 
+  def return_eight(array)
+    result = []
+    array.each_with_index do |item, index|
+      result << item if index <= 7
+    end
+    result
+  end
+
 end
 
 before do
@@ -130,7 +138,7 @@ get '/restaurants' do
   gon.resteraunts = []
   @resteraunts_list = session[:resteraunt_list]
   resteraunts = @resteraunts_list
-  @restaurants = Restaraunt.all
+  @restaurants = return_eight(Restaraunt.all)
   if resteraunts == nil
 
   else
