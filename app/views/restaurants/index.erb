@@ -64,7 +64,7 @@
         <div class="columns">
           <div class="column">
             <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_<%= restaurant.id %>">
-              <p class="is-pulled-left"><%= restaurant.name %></p><p class="tag is-warning is-pulled-right"><%= party_size_wait(restaurant) %> min</p>
+              <p class="is-pulled-left"><%= restaurant.name %></p><%= homepage_wait_tag(restaurant) %>
             </a>
           </div>
         </div>

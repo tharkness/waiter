@@ -49,6 +49,11 @@ helpers do
     end
     result
   end
+  
+# BEGIN helper methods for the index page
+  def restaurant_in_db?(restaurant)
+    restaurant.hostesses[0]
+  end
 
   def party_size_wait(restaurant)
     case session[:party_size].to_i
@@ -60,6 +65,22 @@ helpers do
       restaurant.large_table_wait
     end
   end
+
+  def homepage_wait_tag(restaurant)
+    wait_time = party_size_wait(restaurant)
+    if restaurant_in_db?(restaurant)
+      if wait_time < 10
+        "<p class='tag is-success is-pulled-right'>#{wait_time} min</p>"
+      elsif wait_time > 20
+        "<p class='tag is-danger is-pulled-right'>#{wait_time} min</p>"
+      else
+        "<p class='tag is-warning is-pulled-right'>#{wait_time} min</p>"
+      end
+    else
+      "<p class='tag is-pulled-right'>n/a</p>"
+    end
+  end
+# END helper methods for the index page
 
 end
 
