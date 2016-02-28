@@ -56,6 +56,36 @@
 
       <% else %>
 
+      <div class="columns is-mobile">
+        <div class="column is-hidden-mobile">
+        </div>
+        <div class="column is-3-mobile is-1-tablet is-1-desktop">
+          <a class="button is-primary is-pulled-right" href="/restaurants">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+        </div>
+        <div class="column">
+          <nav class="navbar">
+            <div class="navbar-item">
+              <form action="/search" method="get">
+                <p class="control is-grouped">
+                  <input class="input" type="text" name="term" placeholder="find a restaurant">
+                  <button type="submit" class="button is-primary">
+                    <span class="icon">
+                      <i class="fa fa-search"></i>
+                    </span>
+                  </button>
+                </p>
+              </form>
+            </div>
+          </nav>
+        </div>
+        <div class="column is-hidden-mobile">
+        </div>
+      </div>
+
       <div class="columns is-hidden-tablet">
         <div class="column">
           <table class="table">
@@ -63,14 +93,14 @@
               <tr>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Wait</th>
+                <th>for <%= session[:party_size] %></th>
               </tr>
             </thead>
             <tfoot>
               <tr>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Wait</th>
+                <th>for <%= session[:party_size] %></th>
               </tr>
             </tfoot>
             <tbody>
@@ -122,7 +152,37 @@
           </div>
         </div>
 
-
+        <% if @results.size > 5 %>
+          <div class="columns is-mobile">
+            <div class="column is-hidden-mobile">
+            </div>
+            <div class="column is-3-mobile is-1-tablet is-1-desktop">
+              <a class="button is-primary is-pulled-right" href="/restaurants">
+                <span class="icon">
+                  <i class="fa fa-home"></i>
+                </span>
+              </a>
+            </div>
+            <div class="column">
+              <nav class="navbar">
+                <div class="navbar-item">
+                  <form action="/search" method="get">
+                    <p class="control is-grouped">
+                      <input class="input" type="text" name="term" placeholder="find a restaurant">
+                      <button type="submit" class="button is-primary">
+                        <span class="icon">
+                          <i class="fa fa-search"></i>
+                        </span>
+                      </button>
+                    </p>
+                  </form>
+                </div>
+              </nav>
+            </div>
+            <div class="column is-hidden-mobile">
+            </div>
+          </div>
+        <% end %>
 
     <% end %>
 
