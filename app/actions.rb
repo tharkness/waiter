@@ -78,11 +78,36 @@ helpers do
         "<p class='tag is-warning is-pulled-right'>#{wait_time} min</p>"
       end
     else
-      # NOTE: enable this to show a tag for non-member-restaurants
-      # "<p class='tag is-pulled-right'>n/a</p>"
+      "<p class='tag is-pulled-right'>n/a</p>"
     end
   end
 # END helper methods for the index page
+
+# BEGIN search page tags, definitely needs refactor
+  def wait_tag(restaurant, party)
+    wait = 0
+    case party
+    when 2
+      wait = restaurant.two_seat_wait
+    when 4
+      wait = restaurant.four_seat_wait
+    when 5
+      wait = restaurant.large_table_wait
+    end
+
+    if restaurant_in_db?(restaurant)
+      if wait < 10
+        "<p class='tag is-success'>#{wait} min</p>"
+      elsif wait > 20
+        "<p class='tag is-danger'>#{wait} min</p>"
+      else
+        "<p class='tag is-warning'>#{wait} min</p>"
+      end
+    else
+      "<p class='tag'>n/a</p>"
+    end
+  end
+# END search page tags
 
 end
 
@@ -192,7 +217,7 @@ end
 post '/restaurants' do
   session[:lat] = BigDecimal.new(params[:lat])
   session[:lon] = BigDecimal.new(params[:lon])
-  session[:party_size] = params[:party_size]
+  session[:party_size] = params[:party_size] if params[:party_size]
   resteraunt_info
   # create_resteraunts
   redirect :'/restaurants'
