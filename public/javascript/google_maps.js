@@ -65,7 +65,12 @@ var infowindows = [];
 //----------Add markers to the map---------------
 
 for (i = 0; i < 9; i++) {
-    a = i * 2 
+    if (i == 0){
+      a = i + 2;}
+    else{
+      a = i * 2;
+    }
+  
     markers[i] = new google.maps.Marker({
         position: new google.maps.LatLng(gon.resteraunts[(a)].lat, gon.resteraunts[(a)].lng),
         label: gon.resteraunts[(a - 1)]
