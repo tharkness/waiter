@@ -4,7 +4,6 @@ enable :sessions
 helpers do
 
   def resteraunt_info
-    
     uri = URI.parse("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{session[:lat]},#{session[:lon]}&radius=200&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4")
     response = Net::HTTP.get_response(uri)
     resteraunt = JSON.parse(response.body)
@@ -12,7 +11,6 @@ helpers do
     hello.each do |i|
       i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours" || key == "geometry" || key == "place_id"}
     end
-    # binding.pry
     goodbye = hello
     gon.resteraunts = []
     goodbye.each do |i|
@@ -34,12 +32,6 @@ helpers do
     end
     # binding.pry
   end
-
-  # def create_resteraunts
-  #   hello.each do |i|
-  #     Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"], google_id: i["place_id"]) 
-  #   end
-  #  end
 
   def current_hostess
     Hostess.find(session[:hostess_id]) if session[:hostess_id]
@@ -147,31 +139,8 @@ end
 
 
 get '/restaurants' do
-  # gon.resteraunts = []
   @resteraunts_list = resteraunt_info
-  resteraunts = @resteraunts_list
-  
   @restaurants = Restaraunt.all[0..7]
-  # if resteraunts == nil
-
-  # else
-  #   resteraunts.each do |i|
-  #     i.each do |key, value|
-  #       if key == "geometry" || key == "name"
-  #        gon.resteraunts << value if key == "name"
-  #         if value.is_a? Hash
-  #           value.each do |key, value|
-  #             if key == "location"
-  #               gon.resteraunts << value
-  #             end
-  #           end
-  #         end
-  #       end
-  #     end
-    # end
-   
-   # end
-
   erb :'restaurants/index'
 end
 
