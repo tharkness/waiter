@@ -9,7 +9,7 @@ helpers do
     resteraunt = JSON.parse(response.body)
     hello = resteraunt["results"][0..7]
     hello.each do |i|
-      i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours" || key == "geometry"}
+      i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours" || key == "geometry" || key == "place_id"}
     end
     # binding.pry
     session[:resteraunt_list] = hello
@@ -17,7 +17,7 @@ helpers do
 
   def create_resteraunts
     session[:resteraunt_list].each do |i|
-      Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"])
+      Restaraunt.create(name: i["name"], address: i["vicinity"], ratings: i["rating"], google_id: i["place_id"]) 
     end
    end
 
@@ -55,6 +55,7 @@ get '/logout' do
 end
 
 get '/restaurants/waitlist' do
+  # binding.pry
   @hostess = Hostess.find(session[:hostess_id]) if session[:hostess_id]
   erb :'restaurants/waitlist'
 end
@@ -153,6 +154,16 @@ get '/restaurants' do
 end
 
 get '/restaurants/:id' do
+  erb :'restaurants/show'
+end
+
+get '/search' do
+  @results = Restaraunt.all
+  if params[:term]
+    @results = Restaraunt.search(params[:term])
+  else
+    @results = Restaraunts.all
+  end
   erb :'restaurants/show'
 end
 

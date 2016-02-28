@@ -1,21 +1,9 @@
-<div class="container">
-  <div class="left">
-    <p>this is the left class for mobile css</p>
-    <div class="info">placeholder: where restaurant information goes</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
-    <div class="result">placeholder: nearby restaurant</div>
-  </div>
-
-  <div class="right">
-
-  
-
-  <p>this is the right class for gmaps for desktop</p>
-    <div id="map">
-      <p>where map goes</p>
-    </div>
-  </div>
-</div>
+<% if @results.present? %>
+  <table>
+  <td>Restaraunt Name</td><td>Address</td><td>Two Seat Wait</td><td>Four Seat Wait</td><td>Large Table Wait</td>
+  <% @results.each do |restaraunt| %>
+    <tr><td><%= restaraunt.name %></td><td><%= restaraunt.address %></td><td><%= restaraunt.two_seat_wait %></td><td><%= restaraunt.four_seat_wait %></td><td><%= restaraunt.large_table_wait %></td></tr>
+  <% end %>
+<% else %>
+  <p> There are no results with the name: <%= params[:term] %>.</p>
+<% end %>

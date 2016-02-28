@@ -14,12 +14,14 @@
               <div class="navbar-left">
                 <div class="navbar-item">
                   <p class="control is-grouped">
-                    <input class="input" type="text" placeholder="Find a restaurant">
-                    <button class="button is-primary">
+                    <form action="/search" method="get">
+                      <input class="input" type="text" name="term" placeholder="Find a restaurant">
+                    <button type="submit" class="button is-primary">
                       <span class="icon">
                         <i class="fa fa-search"></i>
                       </span>
                     </button>
+                    </form>
                   </p>
                 </div>
               </div>
