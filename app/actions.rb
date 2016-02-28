@@ -49,7 +49,7 @@ helpers do
     end
     result
   end
-  
+
 # BEGIN helper methods for the index page
   def restaurant_in_db?(restaurant)
     restaurant.hostesses[0]
@@ -77,7 +77,7 @@ helpers do
         "<p class='tag is-warning is-pulled-right'>#{wait_time} min</p>"
       end
     else
-      "<p class='tag is-pulled-right'>n/a</p>"
+      "<p class='tag is-pulled-right'>laggard</p>"
     end
   end
 # END helper methods for the index page
