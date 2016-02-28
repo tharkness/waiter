@@ -109,16 +109,17 @@ end
 # NOTE: redirects to the restaurant's waitlist if logged in
 # else goes to the customer's view of all restaurants
 get '/' do
-  if session[:restaurant_id]
+  if session[:hostess_id]
     redirect '/restaurants/waitlist'
   else
-    redirect '/restaurants'
+    erb :index
   end
 end
 
 post '/restaurants' do
   session[:lat] = BigDecimal.new(params[:lat])
   session[:lon] = BigDecimal.new(params[:lon])
+  session[:party_size] = params[:party_size]
   resteraunt_info
   create_resteraunts
   redirect :'/restaurants'
