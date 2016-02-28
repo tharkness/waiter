@@ -11,7 +11,7 @@ helpers do
     hello.each do |i|
       i.keep_if {| key, value | key == "name" || key == "rating" || key == "vicinity" || key == "opening_hours" || key == "geometry" || key == "place_id" || key == "geometry"}
     end
-    
+
     goodbye = hello
     gon.resteraunts = []
     goodbye.each do |i|
@@ -222,7 +222,6 @@ post '/restaurants' do
   # create_resteraunts
   redirect :'/restaurants'
 end
-
 
 get '/restaurants' do
   @resteraunts_list = resteraunt_info
