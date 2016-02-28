@@ -43,6 +43,19 @@
             <a class="button is-warning is-pulled-right" href="/logout">Logout</a>
             </div>
           <% end %>
+          <!-- NOTE: this block is for debugging of the geo button-->
+          <div class="column is-1">
+            <form id="myForm" action='/restaurants' method="post">
+              <input type='hidden' id="lat" name='lat' value='' />
+              <input type='hidden' id="lon" name='lon' value='' />
+              <button class="button is-info is-pulled-right" type='submit' name='submit'>
+                <span class="icon">
+                  <i class="fa fa-street-view"></i>
+                </span>
+              </button>
+            </form>
+          </div>
+          <!-- end of above NOTE -->
 
       </div><!-- end of columns -->
     </div>
