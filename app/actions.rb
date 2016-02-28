@@ -105,6 +105,24 @@ get '/restaurants/reset_large_table_wait' do
   content_type :json
   { :large_table_wait => current_hostess.reset_large_table_wait }.to_json
 end
+
+get '/restaurants/set_four_seat_wait' do
+  content_type :json
+  { :four_seat_wait => current_hostess.set_four_seat_wait(params[:four_seat_time]) }.to_json
+  redirect :'/restaurants/waitlist'
+end
+
+get '/restaurants/set_two_seat_wait' do
+  content_type :json
+  { :two_seat_wait => current_hostess.set_two_seat_wait(params[:two_seat_time]) }.to_json
+  redirect :'/restaurants/waitlist'
+end
+
+get '/restaurants/set_large_table_wait' do
+  content_type :json
+  { :large_table_wait => current_hostess.set_large_table_wait(params[:large_table_time]) }.to_json
+  redirect :'/restaurants/waitlist'
+end
 #----------------------USER VIEWS----------------------#
 
 # NOTE: redirects to the restaurant's waitlist if logged in

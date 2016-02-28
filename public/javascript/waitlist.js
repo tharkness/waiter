@@ -53,5 +53,11 @@ function reset_large_table_wait() {
   });
 };
 
+function set_four_seat_wait() {
+  $.get("/restaurants/set_four_seat_wait", function(data) {
+    $('#four_seat_wait').html(data.four_seat_wait);
+  });
+};
+
 
 

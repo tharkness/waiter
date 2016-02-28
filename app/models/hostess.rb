@@ -59,6 +59,24 @@ class Hostess < ActiveRecord::Base
     return restaraunt.large_table_wait
   end
 
+  def set_two_seat_wait(time)
+    restaraunt.two_seat_wait = time
+    restaraunt.save
+    return restaraunt.two_seat_wait
+  end
+
+  def set_four_seat_wait(time)
+    restaraunt.four_seat_wait = time
+    restaraunt.save
+    return restaraunt.four_seat_wait
+  end
+
+  def set_large_table_wait(time)
+    restaraunt.large_table_wait = time
+    restaraunt.save
+    return restaraunt.large_table_wait
+  end
+
   def save_changes
     restaraunt.save
   end
