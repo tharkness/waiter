@@ -31,14 +31,16 @@
         <!-- first row search bar & geo button --><!-- mobile view -->
         <div class="columns is-mobile is-hidden-tablet">
           <div class="column">
-            <p class="control is-grouped">
-              <input class="input" type="text" placeholder="Find a restaurant">
-              <button class="button is-primary">
-                <span class="icon">
-                  <i class="fa fa-search"></i>
-                </span>
-              </button>
-            </p>
+            <form action="/search" method="get">
+              <p class="control is-grouped">
+                <input class="input" type="text" name="term" placeholder="find a restaurant">
+                <button type="submit" class="button is-primary">
+                  <span class="icon">
+                    <i class="fa fa-search"></i>
+                  </span>
+                </button>
+              </p>
+            </form>
           </div>
           <!-- NOTE: this block is required even though hidden, to get google maps API -->
           <div class="column is-hidden-mobile">
