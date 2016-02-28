@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227005201) do
+ActiveRecord::Schema.define(version: 20160227231946) do
 
   create_table "hostesses", force: :cascade do |t|
     t.integer "restaraunt_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160227005201) do
     t.integer "large_table_wait", default: 0
     t.boolean "waitlist"
     t.string  "ratings"
+    t.string  "google_id"
   end
 
 end
