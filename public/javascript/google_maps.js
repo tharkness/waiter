@@ -47,45 +47,53 @@ function showPosition(position) {
 
     //----------- Making markers --------------------
 
+    function drop() {
+  for (var i =0; i < markerArray.length; i++) {
+    setTimeout(function() {
+      addMarkerMethod();
+    }, i * 200);
+  }
+}
+
     var marker = new google.maps.Marker({
         position: resteraunt1,
-        title: gon.resteraunts[3]
+        label: gon.resteraunts[3].charAt(0)
+        
     });
 
     var marker2 = new google.maps.Marker({
         position: resteraunt2,
-        title: gon.resteraunts[5]
+        label: gon.resteraunts[5].charAt(0)
     });
 
     var marker3 = new google.maps.Marker({
         position: resteraunt3,
-        title: gon.resteraunts[7]
+        label: gon.resteraunts[7].charAt(0)
     });
 
     var marker4 = new google.maps.Marker({
         position: resteraunt4,
-        title: gon.resteraunts[9],
-        labelContent: "$425K"
+        label: gon.resteraunts[9].charAt(0)
     });
 
     var marker5 = new google.maps.Marker({
         position: resteraunt5,
-        title: gon.resteraunts[11]
+        label: gon.resteraunts[11].charAt(0)
     });
 
     var marker6 = new google.maps.Marker({
         position: resteraunt6,
-        title: gon.resteraunts[13]
+        label: gon.resteraunts[13].charAt(0)
     });
 
     var marker7 = new google.maps.Marker({
         position: resteraunt7,
-        title: gon.resteraunts[15]
+        label: gon.resteraunts[15].charAt(0)
     });
 
     var marker8 = new google.maps.Marker({
         position: resteraunt8,
-        title: gon.resteraunts[17]
+        label: gon.resteraunts[17].charAt(0)
     });
 
 
