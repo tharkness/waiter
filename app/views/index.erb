@@ -1,65 +1,62 @@
 <section class="section">
-<div class="container is-hidden-mobile">
-  <div class="columns">
-    <!-- NOTE: debugging shit -->
-    <div class="column is-hidden-mobile is-hidden-tablet">
-      <div class="box">
-        <div id="map"></div>
-      </div>
-    </div>
-    <!-- NOTE: end debugging shit -->
-    <div class="column">
-      <div class="header-unit">
-        <div id="video-container">
-        <video autoplay loop class="fillWidth">
-        <source src="/videos/video.mp4" type="video/mp4"/>
-        <source src="/videos/video.ogg" type="video/ogg"/>
-        <source src="/videos/video.webm" type="video/webm"/>
-        </video>
-        </div><!-- end video-container -->
+  <div class="container is-hidden-mobile">
+    <div class="columns">
+      <div class="column">
+        <div class="header-unit">
+          <div id="video-container">
+          <video autoplay loop class="fillWidth">
+          <source src="/videos/video.mp4" type="video/mp4"/>
+          <source src="/videos/video.ogg" type="video/ogg"/>
+          <source src="/videos/video.webm" type="video/webm"/>
+          </video>
+          </div><!-- end video-container -->
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
+  <div class="container">
+    <!-- mobile banner -->
+    <div class="columns is-hidden-tablet">
+      <section class="hero is-primary is-bold">
+        <div class="hero-content">
+          <div class="container">
+            <h1 class="title">
+              <span class="icon is-large">
+                <i class="fa fa-cutlery"></i>
+              </span>
+            </h1>
+          </div>
+        </div>
+      </section>
+    </div>
 
-  <!-- first row--><!-- mobile view -->
-  <div class="columns is-mobile is-hidden-tablet">
-    <div class="column">
-      <p class="image is-3by2">
-        <img src="http://placehold.it/300x200">
-      </p>
+    <div class="columns is-mobile">
+      <div class="column">
+      </div>
+      <div class="column is-3-desktop is-3-tablet is-7-mobile">
+        <form id="myForm" action='/restaurants' method="post">
+          <input type='hidden' id="lat" name='lat' value='' />
+          <input type='hidden' id="lon" name='lon' value='' />
+          <p class="control is-grouped">
+              <span class="select">
+                <select name="party_size">
+                  <option value="2">Party size:</option>
+                  <option value="2">1</option>
+                  <option value="2">2</option>
+                  <option value="4">3</option>
+                  <option value="4">4</option>
+                  <option value="5">more than 4</option>
+                </select>
+              </span>
+              <button class="button is-primary" type='submit' name='submit'>
+                go!
+              </button>
+            </p>
+        </form>
+      </div>
+      <div class="column">
+      </div>
     </div>
   </div>
-  <!-- end of first row-->
-
-  <div class="columns is-mobile">
-    <div class="column">
-    </div>
-    <div class="column is-3-desktop is-3-tablet is-8-mobile">
-      <form id="myForm" action='/restaurants' method="post">
-        <input type='hidden' id="lat" name='lat' value='' />
-        <input type='hidden' id="lon" name='lon' value='' />
-        <p class="control is-grouped">
-            <span class="select">
-              <select name="party_size">
-                <option value="2">Party size:</option>
-                <option value="2">1</option>
-                <option value="2">2</option>
-                <option value="4">3</option>
-                <option value="4">4</option>
-                <option value="5">more than 4</option>
-              </select>
-            </span>
-            <button class="button is-primary" type='submit' name='submit'>
-              go!
-            </button>
-          </p>
-      </form>
-    </div>
-    <div class="column">
-    </div>
-  </div>
-</div>
 </section>

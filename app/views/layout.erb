@@ -23,13 +23,21 @@
 <body>
   <div class="section" id="dark"><!-- the id is a customisation of the Bulma source code-->
     <div class="container">
-      <div class="columns is-mobile">
+      <div class="columns">
 
-        <div class="column is-10-desktop is-9-tablet"><!-- title column -->
+        <div class="column is-hidden-tablet"><!-- title column -->
+          <div class="heading">
+            <a href="/">
+              <span class="title">Waiter</span> <span class="subtitle is-6">eat moar</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="column is-hidden-mobile is-10-desktop is-9-tablet"><!-- title column -->
           <div class="heading">
             <a href="/">
               <h1 class="title">Waiter</h1>
-              <h2 class="subtitle">save time, eat more</h2>
+              <h2 class="subtitle">save time, eat moar</h2>
             </a>
           </div>
         </div>
@@ -43,7 +51,7 @@
             <a class="button is-warning is-pulled-right" href="/logout">Logout</a>
             </div>
           <% end %>
-          
+
       </div><!-- end of columns -->
     </div>
   </div>

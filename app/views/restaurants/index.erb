@@ -62,13 +62,16 @@
           <div class="modal-content">
             <div class="box">
               <div class="content">
-                <p class="image is-4by3">
+                <p class="image is-square is-hidden-tablet">
+                  <img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7Clabel:W%7C<%=restaurant.lat%>,<%=restaurant.lon%>&size=400x400&zoom=17&key=AIzaSyBbWEvWO9HjupoJUCoNMkaEdIWIvgjAWkQ"/>
+                </p>
+                <p class="image is-4by3 is-hidden-mobile">
                   <img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7Clabel:W%7C<%=restaurant.lat%>,<%=restaurant.lon%>&size=800x600&zoom=18&key=AIzaSyBbWEvWO9HjupoJUCoNMkaEdIWIvgjAWkQ"/>
                 </p>
                 <%= homepage_wait_tag(restaurant) %>
                 <p class="title is-5"><%= restaurant.name %></p>
                 <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
-                <p>Good eats, tasty brains. Some people can't handle the spice... you can!</p>
+                <p class="is-hidden-mobile">Good eats, tasty brains. Some people can't handle the spice... you can!</p>
               </div>
             </div>
           </div>
