@@ -14,7 +14,6 @@ function getLocation() {
 //Storing longitude and lattitude
 
 function showPosition(position) {
-
     lat = position.coords.latitude;
     lon = position.coords.longitude;
     document.getElementById('lat').value = lat;
@@ -47,63 +46,110 @@ function showPosition(position) {
 
     //----------- Making markers --------------------
 
-//     function drop() {
-//   for (var i =0; i < markerArray.length; i++) {
-//     setTimeout(function() {
-//       addMarkerMethod();
-//     }, i * 200);
-//   }
-// }
 
 
-var markers=[];
-var contents = [];
-var infowindows = [];
+
+// var markers=[];
+// var contents = [];
+// var infowindows = [];
 
 
 
 //----------Add markers to the map---------------
 
-for (i = 0; i < 9; i++) {
+// for (i = 0; i < 9; i++) {
 
-    if (i == 0){
-      a = i + 2;}
-    else{
-      a = i * 2;
-    }
+//     if (i == 0){
+//       a = i;}
+//     else{
+//       a = i * 2;
+//     }
   
-    markers[i] = new google.maps.Marker({
+//     markers[i] = new google.maps.Marker({
        
-        position: new google.maps.LatLng(gon.resteraunts[(a)].lat, gon.resteraunts[(a)].lng),
-        label: gon.resteraunts[(a - 1)]
-    });
+//         position: new google.maps.LatLng(gon.resteraunts[(a)].lat, gon.resteraunts[(a)].lng),
+//         label: gon.resteraunts[Math.abs((a - 1))],
+//         animation: google.maps.Animation.DROP
+//     });
 
-    markers[i].index = i; //add index property
-    contents[i] = ['<p>',gon.resteraunts[(a - 1)],'</p>'].join("");
+//     markers[i].index = i; //add index property
+//     contents[i] = ['<p>',gon.resteraunts[Math.abs((a - 1))],'</p>'].join("");
 
 
-    infowindows[i] = new google.maps.InfoWindow({
-        content: contents[i],
-        maxWidth: 300
-    });
+//     infowindows[i] = new google.maps.InfoWindow({
+//         content: contents[i],
+//         maxWidth: 300
+//     });
 
-    google.maps.event.addListener(markers[i], 'click', function() {
-        console.log(this.index); // this will give correct index
-        console.log(i); //this will always give 10 for you
-        infowindows[this.index].open(map,markers[this.index]);
-        map.panTo(markers[this.index].getPosition());
-    });  
+//     google.maps.event.addListener(markers[i], 'click', function() {
+//         console.log(this.index); // this will give correct index
+//         console.log(i); //this will always give 10 for you
+//         infowindows[this.index].open(map,markers[this.index]);
+//         map.panTo(markers[this.index].getPosition());
+//     });  
+// }
+
+var marker1 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[0].lat, gon.resteraunts[0].lng),
+  label: gon.resteraunts[1],
+  animation: google.maps.Animation.DROP
+});
+
+var marker2 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[2].lat, gon.resteraunts[2].lng),
+  label: gon.resteraunts[3],
+  animation: google.maps.Animation.DROP
+});
+
+var marker3 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[4].lat, gon.resteraunts[4].lng),
+  label: gon.resteraunts[5],
+  animation: google.maps.Animation.DROP
+});
+
+var marker4 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[6].lat, gon.resteraunts[6].lng),
+  label: gon.resteraunts[7],
+  animation: google.maps.Animation.DROP
+});
+
+var marker5 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[8].lat, gon.resteraunts[8].lng),
+  label: gon.resteraunts[9],
+  animation: google.maps.Animation.DROP
+});
+
+var marker6 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[10].lat, gon.resteraunts[10].lng),
+  label: gon.resteraunts[11],
+  animation: google.maps.Animation.DROP
+});
+
+var marker7 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[12].lat, gon.resteraunts[12].lng),
+  label: gon.resteraunts[13],
+  animation: google.maps.Animation.DROP
+});
+
+var marker8 = new google.maps.Marker({      
+  position: new google.maps.LatLng(gon.resteraunts[14].lat, gon.resteraunts[15].lng),
+  label: gon.resteraunts[15],
+  animation: google.maps.Animation.DROP
+});
+
+// ----------------------Populates map-------------------------------------------------
+
+  marker1.setMap(map);
+  marker2.setMap(map);
+  marker3.setMap(map);
+  marker4.setMap(map);
+  marker5.setMap(map);
+  marker6.setMap(map);
+  marker7.setMap(map);
+  marker8.setMap(map);
+
+
 }
-
-// ----------------------Populates map--------------------------------------------------
-
-for (i = 0; i < 8; i++) {
-  markers[i].setMap(map);
-}
-
-}
-
-
 
 
 
@@ -127,30 +173,6 @@ function showError(error) {
 
 }
 
-// Grabbing lat and long
 
-
-// console.log(gon.resteraunts);
-
-// var marker = new google.maps.Marker({
-//     var position = new google.maps.LatLng(gon.resteraunts[2].lat, gon.resteraunts[2].lng)
-//     position: position
-//     map: map,
-//     title: 'Hello World!'
-//   });
-
-// var string_http = ['https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=',lat,',',lon,'&radius=500&type=restaurant&key=AIzaSyAVfs5AUpHDWv_RSr4x7sIhaDivbc6QaX4'].join("");
-
-// console.log("string = " + string_http)
-// $.ajax({
-//   url: string_http ,
-//   dataType: 'json',
-//   crossDomain: true,
-//   success: function(response) {
-//     debugger;
-//   }
-// });
-
-   
 
 
