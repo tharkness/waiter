@@ -6,7 +6,8 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,showError);
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";}
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
 }
 
 
@@ -44,50 +45,14 @@ function showPosition(position) {
   });
 
 
-    //----------- Making markers --------------------
+   
 
 
 
-
-// var markers=[];
-// var contents = [];
-// var infowindows = [];
+//----------Making markers---------------
 
 
 
-//----------Add markers to the map---------------
-
-// for (i = 0; i < 9; i++) {
-
-//     if (i == 0){
-//       a = i;}
-//     else{
-//       a = i * 2;
-//     }
-  
-//     markers[i] = new google.maps.Marker({
-       
-//         position: new google.maps.LatLng(gon.resteraunts[(a)].lat, gon.resteraunts[(a)].lng),
-//         label: gon.resteraunts[Math.abs((a - 1))],
-//         animation: google.maps.Animation.DROP
-//     });
-
-//     markers[i].index = i; //add index property
-//     contents[i] = ['<p>',gon.resteraunts[Math.abs((a - 1))],'</p>'].join("");
-
-
-//     infowindows[i] = new google.maps.InfoWindow({
-//         content: contents[i],
-//         maxWidth: 300
-//     });
-
-//     google.maps.event.addListener(markers[i], 'click', function() {
-//         console.log(this.index); // this will give correct index
-//         console.log(i); //this will always give 10 for you
-//         infowindows[this.index].open(map,markers[this.index]);
-//         map.panTo(markers[this.index].getPosition());
-//     });  
-// }
 
 var marker1 = new google.maps.Marker({      
   position: new google.maps.LatLng(gon.resteraunts[0].lat, gon.resteraunts[0].lng),
@@ -172,6 +137,15 @@ function showError(error) {
     }
 
 }
+
+
+// contents[i] = ['<p>',gon.resteraunts[(a - 1)],'</p>'].join("");
+
+
+//     infowindows[i] = new google.maps.InfoWindow({
+//         content: contents[i],
+//         maxWidth: 300
+//     });
 
 
 
