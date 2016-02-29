@@ -6,7 +6,8 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,showError);
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";}
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
 }
 
 
@@ -71,9 +72,9 @@ for (i = 0; i < 9; i++) {
     else{
       a = i * 2;
     }
-  
+
     markers[i] = new google.maps.Marker({
-       
+
         position: new google.maps.LatLng(gon.resteraunts[(a)].lat, gon.resteraunts[(a)].lng),
         label: gon.resteraunts[(a - 1)]
     });
@@ -92,7 +93,7 @@ for (i = 0; i < 9; i++) {
         console.log(i); //this will always give 10 for you
         infowindows[this.index].open(map,markers[this.index]);
         map.panTo(markers[this.index].getPosition());
-    });  
+    });
 }
 
 // ----------------------Populates map--------------------------------------------------
@@ -150,7 +151,3 @@ function showError(error) {
 //     debugger;
 //   }
 // });
-
-   
-
-

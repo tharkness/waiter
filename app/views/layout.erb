@@ -18,7 +18,7 @@
 
   <!-- Added all JavaScript files to end of body....async issues -->
 
-  <title>Waiter - for the hungry</title>
+  <title>Waiter - eat moar!</title>
 </head>
 <body>
   <div class="section" id="dark"><!-- the id is a customisation of the Bulma source code-->
@@ -43,20 +43,7 @@
             <a class="button is-warning is-pulled-right" href="/logout">Logout</a>
             </div>
           <% end %>
-          <!-- NOTE: this block is for debugging of the geo button-->
-          <div class="column is-1">
-            <form id="myForm" action='/restaurants' method="post">
-              <input type='hidden' id="lat" name='lat' value='' />
-              <input type='hidden' id="lon" name='lon' value='' />
-              <button class="button is-info is-pulled-right" type='submit' name='submit'>
-                <span class="icon">
-                  <i class="fa fa-street-view"></i>
-                </span>
-              </button>
-            </form>
-          </div>
-          <!-- end of above NOTE -->
-
+          
       </div><!-- end of columns -->
     </div>
   </div>
@@ -73,10 +60,8 @@
 
 <!--__________JavaScript_________________ -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/javascript/application.js"></script>
 <!-- Google maps api -->
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
 <script src="/javascript/google_maps.js"></script>
 <script src="/javascript/application.js"></script>
 <script src="/javascript/waitlist.js"></script>

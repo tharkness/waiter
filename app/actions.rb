@@ -219,7 +219,6 @@ post '/restaurants' do
   session[:lon] = BigDecimal.new(params[:lon])
   session[:party_size] = params[:party_size] if params[:party_size]
   resteraunt_info
-  # create_resteraunts
   redirect :'/restaurants'
 end
 
@@ -238,7 +237,7 @@ get '/search' do
   if params[:term]
     @results = Restaraunt.search(params[:term])
   else
-    @results = Restaraunts.all
+    @results = Restaraunt.all
   end
   erb :'restaurants/show'
 end
