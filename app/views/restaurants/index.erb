@@ -1,13 +1,7 @@
-<!-- testing section -->
 <section class="section">
   <div class="container">
-    <!-- begin of columns -->
     <div class="columns">
-
-      <!-- left column -->
       <div class="column is-4-desktop is-6-tablet">
-
-        <!-- first row search bar & geo button --><!-- tablet & desktop view-->
         <div class="columns is-hidden-mobile">
           <div class="column">
             <nav class="navbar">
@@ -26,9 +20,6 @@
             </nav>
           </div>
         </div>
-        <!-- end of first row -->
-
-        <!-- first row search bar & geo button --><!-- mobile view -->
         <div class="columns is-mobile is-hidden-tablet">
           <div class="column">
             <form action="/search" method="get">
@@ -43,48 +34,36 @@
             </form>
           </div>
         </div>
-        <!-- end of first row -->
-
-        <!-- beginning of Ruby magic -->
         <% @restaurants.each do |restaurant| %>
-        <!-- row -->
-        <div class="columns">
-          <div class="column">
-            <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_<%= restaurant.id %>">
-              <p class="is-pulled-left"><%= restaurant.name %></p><%= homepage_wait_tag(restaurant) %>
-            </a>
-          </div>
-        </div>
-        <!-- end of row -->
-        <!-- beginning of a modal -->
-        <div id="modal_<%= restaurant.id %>" class="modal">
-          <div class="modal-background"></div>
-          <div class="modal-content">
-            <div class="box">
-              <div class="content">
-                <p class="image is-square is-hidden-tablet">
-                  <img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7Clabel:W%7C<%=restaurant.lat%>,<%=restaurant.lon%>&size=400x400&zoom=17&key=AIzaSyBbWEvWO9HjupoJUCoNMkaEdIWIvgjAWkQ"/>
-                </p>
-                <p class="image is-4by3 is-hidden-mobile">
-                  <img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7Clabel:W%7C<%=restaurant.lat%>,<%=restaurant.lon%>&size=800x600&zoom=18&key=AIzaSyBbWEvWO9HjupoJUCoNMkaEdIWIvgjAWkQ"/>
-                </p>
-                <%= homepage_wait_tag(restaurant) %>
-                <p class="title is-5"><%= restaurant.name %></p>
-                <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
-                <p class="is-hidden-mobile">Good eats, tasty brains. Some people can't handle the spice... you can!</p>
-              </div>
+          <div class="columns">
+            <div class="column">
+              <a class="button is-fullwidth is-medium is-primary is-outlined modal-button" data-target="#modal_<%= restaurant.id %>">
+                <p class="is-pulled-left"><%= restaurant.name %></p><%= homepage_wait_tag(restaurant) %>
+              </a>
             </div>
           </div>
-          <button class="modal-close"></button>
-        </div>
-        <!-- end of modal -->
+          <div id="modal_<%= restaurant.id %>" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <div class="box">
+                <div class="content">
+                  <p class="image is-square is-hidden-tablet">
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7Clabel:W%7C<%=restaurant.lat%>,<%=restaurant.lon%>&size=400x400&zoom=17&key=AIzaSyBbWEvWO9HjupoJUCoNMkaEdIWIvgjAWkQ"/>
+                  </p>
+                  <p class="image is-4by3 is-hidden-mobile">
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7Clabel:W%7C<%=restaurant.lat%>,<%=restaurant.lon%>&size=800x600&zoom=18&key=AIzaSyBbWEvWO9HjupoJUCoNMkaEdIWIvgjAWkQ"/>
+                  </p>
+                  <%= homepage_wait_tag(restaurant) %>
+                  <p class="title is-5"><%= restaurant.name %></p>
+                  <p class="subtitle is-6"><%= restaurant.address.split(",")[0] %></p>
+                  <p class="is-hidden-mobile">Good eats, tasty brains. Some people can't handle the spice... you can!</p>
+                </div>
+              </div>
+            </div>
+            <button class="modal-close"></button>
+          </div>
         <% end %>
-        <!-- end of Ruby magic -->
-
-      </div><!-- end of left column -->
-      <!-- end left column -->
-
-      <!-- right side main column, for desktop & tablet -->
+      </div>
       <div class="column is-hidden-mobile is-hidden-tablet">
         <form id="myForm" action='/restaurants' method="post">
           <input type='hidden' id="lat" name='lat' value='' />
@@ -100,10 +79,7 @@
         <div class="box">
           <div id="map"></div>
         </div>
-      </div><!-- end right column -->
-      <!-- end right column -->
-
+      </div>
     </div>
-    <!-- end of columns -->
   </div>
 </section>

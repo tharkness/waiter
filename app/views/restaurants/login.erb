@@ -1,15 +1,10 @@
-<!-- testing section -->
 <section class="section">
   <div class="container">
     <div class="columns is-multiline">
-<% if @restaurants[0] %>
-  <% @restaurants.each do |restaurant| %>
-        <div class="column is-4"><!-- begin of a restaurant card-->
+      <% if @restaurants[0] %>
+      <% @restaurants.each do |restaurant| %>
+        <div class="column is-4">
           <div class="card">
-            <!-- NOTE: enable for restaurant card images
-            <figure class="card-image is-4x3">
-              <img src="http://placehold.it/400x300" alt="">
-            </figure> -->
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
@@ -34,17 +29,16 @@
               </div>
             </div>
           </div>
-        </div><!-- end of a restaurant card -->
+        </div>
   <% end %>
 <% else %>
   <div class="column">
-    <p>We need your location to find restaurants near you, then you may login.</p>
+    <p>We need your location to find your restaurant, then you may login.</p>
   </div>
   <div class="column">
     <form id="myForm" action='/restaurants' method="post">
       <input type='hidden' id="lat" name='lat' value='' />
       <input type='hidden' id="lon" name='lon' value='' />
-      <!-- This button is sending the long and lat to post'/go'. Edit at will. -->
       <button class="button is-info" type='submit' name='submit'>
         <span class="icon">
           <i class="fa fa-street-view"></i>
@@ -53,7 +47,6 @@
     </form>
   </div>
 <% end %>
-
-    </div><!-- end of columns -->
+    </div>
   </div>
 </section>
