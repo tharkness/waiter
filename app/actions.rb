@@ -124,7 +124,7 @@ post '/restaurants/demologin' do
 end
 
 get '/logout' do
-  session.clear
+  session[:hostess_id] = nil
   redirect '/restaurants/login'
 end
 
@@ -199,6 +199,7 @@ end
 #----------------------USER VIEWS----------------------#
 
 get '/' do
+
   if session[:hostess_id]
     redirect '/restaurants/waitlist'
   else
@@ -207,6 +208,14 @@ get '/' do
 end
 
 post '/restaurants' do
+  session[:lat] = BigDecimal.new(params[:lat])
+  session[:lon] = BigDecimal.new(params[:lon])
+  session[:party_size] = params[:party_size] if params[:party_size]
+  resteraunt_info
+  redirect :'/restaurants'
+end
+
+post '/' do
   session[:lat] = BigDecimal.new(params[:lat])
   session[:lon] = BigDecimal.new(params[:lon])
   session[:party_size] = params[:party_size] if params[:party_size]
