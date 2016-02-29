@@ -1,61 +1,54 @@
 <section class="section">
   <div class="container">
-
-
-
-
-      <% if @results.empty? %>
+    <% if @results.empty? %>
+      <div class="columns">
+        <div class="column">
+        </div>
+        <div class="column">
+          <p class="image is-16by9">
+            <img src="/images/404.jpg">
+          </p>
+        </div>
+        <div class="column">
+        </div>
+      </div>
+      <div class="notification is-warning">
         <div class="columns">
-          <div class="column">
-          </div>
-          <div class="column">
-            <p class="image is-16by9">
-              <img src="/images/404.jpg">
-            </p>
-          </div>
-          <div class="column">
+          <div class="column is-8 is-offset-2">
+            <h2 class="subtitle is-text-centered"><strong><%= params[:term] %></strong> is not the restaurant you are looking for</h2>
           </div>
         </div>
-
-        <div class="notification is-warning">
-          <div class="columns">
-            <div class="column is-8 is-offset-2">
-              <h2 class="subtitle is-text-centered"><strong><%= params[:term] %></strong> is not the restaurant you are looking for</h2>
-            </div>
+        <div class="columns is-mobile">
+          <div class="column is-hidden-mobile">
           </div>
-          <div class="columns is-mobile">
-            <div class="column is-hidden-mobile">
-            </div>
-            <div class="column is-3-mobile is-1-tablet is-1-desktop">
-                <a class="button is-primary is-pulled-right" href="/restaurants">
-                  <span class="icon">
-                    <i class="fa fa-home"></i>
-                  </span>
-                </a>
-            </div>
-            <div class="column">
-              <nav class="navbar">
-                <div class="navbar-item">
-                  <form action="/search" method="get">
-                    <p class="control is-grouped">
-                      <input class="input" type="text" name="term" placeholder="find a restaurant">
-                      <button type="submit" class="button is-primary">
-                        <span class="icon">
-                          <i class="fa fa-search"></i>
-                        </span>
-                      </button>
-                    </p>
-                  </form>
-                </div>
-              </nav>
-            </div>
-            <div class="column is-hidden-mobile">
-            </div>
+          <div class="column is-3-mobile is-1-tablet is-1-desktop">
+              <a class="button is-primary is-pulled-right" href="/restaurants">
+                <span class="icon">
+                  <i class="fa fa-home"></i>
+                </span>
+              </a>
+          </div>
+          <div class="column">
+            <nav class="navbar">
+              <div class="navbar-item">
+                <form action="/search" method="get">
+                  <p class="control is-grouped">
+                    <input class="input" type="text" name="term" placeholder="find a restaurant">
+                    <button type="submit" class="button is-primary">
+                      <span class="icon">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </button>
+                  </p>
+                </form>
+              </div>
+            </nav>
+          </div>
+          <div class="column is-hidden-mobile">
           </div>
         </div>
-
+      </div>
       <% else %>
-
       <div class="columns is-mobile">
         <div class="column is-hidden-mobile">
         </div>
@@ -85,7 +78,6 @@
         <div class="column is-hidden-mobile">
         </div>
       </div>
-
       <div class="columns is-hidden-tablet">
         <div class="column">
           <table class="table">
@@ -115,76 +107,72 @@
           </table>
         </div>
       </div>
-
-        <div class="columns is-hidden-mobile">
+      <div class="columns is-hidden-mobile">
+        <div class="column">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>1 & 2</th>
+                <th>3 & 4</th>
+                <th>5+</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>1 & 2</th>
+                <th>3 & 4</th>
+                <th>5+</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <% @results.each do |restaraunt| %>
+                <tr>
+                  <td><%= restaraunt.name %></td>
+                  <td><%= restaraunt.address.split(",")[0] %></td>
+                  <td><%= wait_tag(restaraunt, 2) %></td>
+                  <td><%= wait_tag(restaraunt, 4) %></td>
+                  <td><%= wait_tag(restaraunt, 5) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <% if @results.size > 5 %>
+        <div class="columns is-mobile">
+          <div class="column is-hidden-mobile">
+          </div>
+          <div class="column is-3-mobile is-1-tablet is-1-desktop">
+            <a class="button is-primary is-pulled-right" href="/restaurants">
+              <span class="icon">
+                <i class="fa fa-home"></i>
+              </span>
+            </a>
+          </div>
           <div class="column">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>1 & 2</th>
-                  <th>3 & 4</th>
-                  <th>5+</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>1 & 2</th>
-                  <th>3 & 4</th>
-                  <th>5+</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <% @results.each do |restaraunt| %>
-                  <tr>
-                    <td><%= restaraunt.name %></td>
-                    <td><%= restaraunt.address.split(",")[0] %></td>
-                    <td><%= wait_tag(restaraunt, 2) %></td>
-                    <td><%= wait_tag(restaraunt, 4) %></td>
-                    <td><%= wait_tag(restaraunt, 5) %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+            <nav class="navbar">
+              <div class="navbar-item">
+                <form action="/search" method="get">
+                  <p class="control is-grouped">
+                    <input class="input" type="text" name="term" placeholder="find a restaurant">
+                    <button type="submit" class="button is-primary">
+                      <span class="icon">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </button>
+                  </p>
+                </form>
+              </div>
+            </nav>
+          </div>
+          <div class="column is-hidden-mobile">
           </div>
         </div>
-
-        <% if @results.size > 5 %>
-          <div class="columns is-mobile">
-            <div class="column is-hidden-mobile">
-            </div>
-            <div class="column is-3-mobile is-1-tablet is-1-desktop">
-              <a class="button is-primary is-pulled-right" href="/restaurants">
-                <span class="icon">
-                  <i class="fa fa-home"></i>
-                </span>
-              </a>
-            </div>
-            <div class="column">
-              <nav class="navbar">
-                <div class="navbar-item">
-                  <form action="/search" method="get">
-                    <p class="control is-grouped">
-                      <input class="input" type="text" name="term" placeholder="find a restaurant">
-                      <button type="submit" class="button is-primary">
-                        <span class="icon">
-                          <i class="fa fa-search"></i>
-                        </span>
-                      </button>
-                    </p>
-                  </form>
-                </div>
-              </nav>
-            </div>
-            <div class="column is-hidden-mobile">
-            </div>
-          </div>
-        <% end %>
-
+      <% end %>
     <% end %>
-
-</div>
+  </div>
 </section>

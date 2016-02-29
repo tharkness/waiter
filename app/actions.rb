@@ -1,4 +1,3 @@
-
 enable :sessions
 
 helpers do
@@ -51,7 +50,6 @@ helpers do
     result
   end
 
-# BEGIN helper methods for the index page
   def restaurant_in_db?(restaurant)
     restaurant.hostesses[0]
   end
@@ -81,9 +79,7 @@ helpers do
       "<p class='tag is-pulled-right'>n/a</p>"
     end
   end
-# END helper methods for the index page
 
-# BEGIN search page tags, definitely needs refactor
   def wait_tag(restaurant, party)
     wait = 0
     case party
@@ -107,7 +103,6 @@ helpers do
       "<p class='tag'>n/a</p>"
     end
   end
-# END search page tags
 
 end
 
@@ -130,7 +125,7 @@ end
 
 get '/logout' do
   session.clear
-  redirect '/'
+  redirect '/restaurants/login'
 end
 
 get '/restaurants/waitlist' do
@@ -139,7 +134,6 @@ get '/restaurants/waitlist' do
   erb :'restaurants/waitlist'
 end
 
-# NOTE: below is Tom's crazy awesome engine
 get '/restaurants/increment_two_seat_wait' do
   content_type :json
   { :two_seat_wait => current_hostess.increase_two_seat_wait }.to_json
@@ -204,8 +198,6 @@ get '/restaurants/set_large_table_wait' do
 end
 #----------------------USER VIEWS----------------------#
 
-# NOTE: redirects to the restaurant's waitlist if logged in
-# else goes to the customer's view of all restaurants
 get '/' do
   if session[:hostess_id]
     redirect '/restaurants/waitlist'
@@ -240,13 +232,4 @@ get '/search' do
     @results = Restaraunt.all
   end
   erb :'restaurants/show'
-end
-
-
-#----------------------DEBUGGING VIEWS----------------------#
-
-# the views here are for debugging, not included in public nav
-
-get '/debug' do
-  erb :debug
 end
